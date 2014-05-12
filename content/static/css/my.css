@@ -9,13 +9,13 @@ td, th {
   	padding: 2px;
 }
 
-@media only screen and (max-device-width : 640px) {
+@media only screen and (max-width: 640px) {
 .imgwidth {
-	width: 300px;
+	width: 250px;
 }
 }
 
-@media only screen and (min-device-width : 641px) {
+@media only screen and (min-width: 641px) {
 .imgwidth {
 	width: 550px;
 }
@@ -31,24 +31,46 @@ div.figure {
   	border-style:solid;
   	border-width:thin;
   	margin-top: 0.2em;
-  	margin-bottom: 0.2em;
+  	margin-bottom: 0.5em;
   	margin-left: 0.2em;
-  	margin-right: 1em;
+  	margin-right: 0.5em;
   	padding 1em;
 }
 
 img.align-left, .figure.align-left, object.align-left {
-  clear: left ;
-  float: left ;
-  margin-right: 1em }
+  clear: left;
+  float: left;
+  margin-right: 1em; 
+}
 
 img.align-right, .figure.align-right, object.align-right {
-  clear: right ;
-  float: right ;
-  margin-left: 1em }
+  clear: right;
+  float: right;
+  margin-left: 1em;
+}
 
 img.align-center, .figure.align-center, object.align-center {
   display: block;
   margin-left: auto;
   margin-right: auto;
 }
+
+
+/* Fix for list bullets overlapping floating images
+   See: http://stackoverflow.com/questions/710158/why-do-my-list-item-bullets-overlap-floating-elements */
+ul {
+    list-style: outside disc;
+    margin-left: 1em;
+}
+
+ul li {
+    position: relative;
+    left: 2em;
+    padding-right: 1em;    
+}
+
+.figure-caption {
+	text-align: center;
+	display: block;
+}
+​
