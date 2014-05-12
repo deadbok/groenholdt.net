@@ -28,8 +28,8 @@ a {
 
 div.figure {
 	float: left;
-  	border-style:solid;
-  	border-width:thin;
+  	/*border-style:solid;
+  	border-width:thin;*/
   	margin-top: 0.2em;
   	margin-bottom: 0.5em;
   	margin-left: 0.2em;
@@ -72,5 +72,9 @@ ul li {
 .figure-caption {
 	text-align: center;
 	display: block;
+}
+
+img {
+	  	border: 1px solid black;
 }
 ​
