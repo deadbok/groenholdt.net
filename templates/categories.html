@@ -1,9 +1,11 @@
 {% extends "base.html" %}
-{% block title %}{{ SITENAME }} <small>[categories]</small>{% endblock %}
-{% block content %}
-<ul>
-{% for category, articles in categories %}
-	<li><a href="{{ SITEURL }}/{{ category.url }}">{{ category }}</a></li>
-{% endfor %}
-</ul>
+{% block contents %}
+<div class="panel panel-default">
+	<div class="panel-heading">
+	<h1 class="panel-title">{{ content.metadata.title }}</h1>
+	</div>
+	<div class="panel-body">
+	{{ content.content }}
+	</div>
+</div>
 {% endblock %}
