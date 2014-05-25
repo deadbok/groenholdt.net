@@ -7,7 +7,7 @@ type: post
 template: post
 
 
-I was given a [Medion MD86517 NAS][(http://www.mikrocontroller.net/articles/P89626) 
+I was given a [Medion MD86517 NAS](http://www.mikrocontroller.net/articles/P89626) 
 without a drive for free. I wanted to put a 2.5" disk in it, and use it as a 
 web-server. The NAS runs Linux, and the sources are [here](gpl_source_md86407.exe).
 
@@ -22,7 +22,7 @@ want this.
 
 *Much of this stuff needs root permissions, and all the NAS side stuff is done
 through a serial connection.* If something is unclear, read [The Gentoo handbook](http://www.gentoo.org/doc/en/handbook/),
-this is in essence the same procedure, except I boot into the system instead of
+this is in esence the same procedure, except I boot into the system instead of
 chrooting.
 
 A lot of thanks and credit to the people in [this thread](http://archlinuxarm.org/forum/viewtopic.php?f=55&t=6193),
@@ -45,13 +45,13 @@ Creating the partitions
     ./disk_create
     fdisk -c=dos /dev/sdb
 
- - Create a small partition for U-Boot, stage1, and the kernel. WarheadsSE
-   recommends a 10M partition. **This partition must start at sector 2048.**
+- Create a small partition for U-Boot, stage1, and the kernel. WarheadsSE
+  recommends a 10M partition. **This partition must start at sector 2048.**
  
- - Create a second partition for the root file system, leave a little space
-   left for a swap partition.
+- Create a second partition for the root file system, leave a little space
+  left for a swap partition.
 
- - Create a third partition for swap space. Set it as swap type.
+- Create a third partition for swap space. Set it as swap type.
  
 Format the second and third partition, I use ext4 as the root file system.
 
@@ -230,7 +230,7 @@ Add the network interface to the startup.
 
 Update and install some needed stuff.
 
-    emerge -uDNv world ntp cronie syslog-ng openssh logrotate
+    emerge -uDNv world ntp cronie syslog-ng openssh logrotate dhcpcd
  
 Add it to the startup.
 
@@ -238,6 +238,8 @@ Add it to the startup.
     rc-update add cronie default
     rc-update add sshd default
     rc-update add ntp-client default
+    rc-update add swclock boot
+    rc-update del hwclock boot
 
 The end
 =======
