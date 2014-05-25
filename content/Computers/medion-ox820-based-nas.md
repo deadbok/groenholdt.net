@@ -43,6 +43,7 @@ Creating the partitions
 -----------------------
 
 Prepare the disk using WarheadsSE's tool.
+
     ./disk_create
 
 - Create a small partition for U-Boot, stage1, and the kernel. WarheadsSE
