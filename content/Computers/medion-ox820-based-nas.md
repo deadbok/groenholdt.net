@@ -42,8 +42,8 @@ in the variable ``disk``.**
 Creating the partitions
 -----------------------
 
+Prepare the disk using WarheadsSE's tool.
     ./disk_create
-    fdisk -c=dos /dev/sdb
 
 - Create a small partition for U-Boot, stage1, and the kernel. WarheadsSE
   recommends a 10M partition. **This partition must start at sector 2048.**
@@ -52,6 +52,8 @@ Creating the partitions
   left for a swap partition.
 
 - Create a third partition for swap space. Set it as swap type.
+    
+    fdisk -c=dos /dev/sdb
  
 Format the second and third partition, I use ext4 as the root file system.
 
