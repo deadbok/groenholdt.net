@@ -25,6 +25,8 @@ through a serial connection.* If something is unclear, read [The Gentoo handbook
 this is in esence the same procedure, except I boot into the system instead of
 chrooting.
 
+!{The serial port connection.}($LOCALURL/nas_serial_port.png)
+
 A lot of thanks and credit to the people in [this thread](http://archlinuxarm.org/forum/viewtopic.php?f=55&t=6193),
 without whom I would never have gotten on the right track.
 
@@ -34,7 +36,7 @@ Partitioning
 To boot from the SATA disk, a special partition layout is needed. The ox820
 reads the start of the drive, to check if it is bootable. A script has been
 written to put the right data in the first part of the hard disk.
-Download [disk creation files](onax-sata_boot.tar.gz) created by 
+Download [disk creation files]($LOCALURL/onax-sata_boot.tar.gz) created by 
 [WarheadsSE](https://github.com/WarheadsSE), extract the files somewhere, and 
 enter that directory. **Edit the disk_create script to change the target drive 
 in the variable ``disk``.**
@@ -46,7 +48,7 @@ Prepare the disk using WarheadsSE's tool.
 
     ./disk_create
 
-Fire up fdisk to partition the disk
+Fire up fdisk to partition the disk.
 
     fdisk -c=dos /dev/sdb
 
@@ -147,6 +149,7 @@ Clone [linux-oxnas](https://github.com/kref/linux-oxnas) into
   
     cd /mnt/gentoo/usr/src
     git clone https://github.com/kref/linux-oxnas
+    ln -sf linux-oxnas linux
 
     cd linux-oxnas
     make ARCH=arm ox820_defconfig CROSS_COMPILE=armv5tel-softfloat-linux-gnueabi-
