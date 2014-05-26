@@ -25,7 +25,7 @@ through a serial connection.* If something is unclear, read [The Gentoo handbook
 this is in esence the same procedure, except I boot into the system instead of
 chrooting.
 
-!{The serial port connection.}($LOCALURL/nas_serial_port.png)
+!{The serial port connection}($LOCALURL/nas_serial_port.png)
 
 A lot of thanks and credit to the people in [this thread](http://archlinuxarm.org/forum/viewtopic.php?f=55&t=6193),
 without whom I would never have gotten on the right track.
