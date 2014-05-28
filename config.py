@@ -6,7 +6,7 @@ CONFIG = {
         'SITEURL': 'http://librebook/test',
         'SITENAME': 'Homepage V. 5.1',
         'POSTPERINDEX': 6,
-        'METAPARSERSS': ['CategoryMetaParser'],
+        'METAPARSERS': ['CategoryMetaParser'],
         'GENERATORS': ['BlogIndexGenerator'],
         'CONTENTFILTERS': ['LocalURL']
 }
