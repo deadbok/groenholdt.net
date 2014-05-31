@@ -4,6 +4,7 @@ slug: nrf24l01-and-the-ti-msp430-and-stellaris-launchpads
 tags: Microcontroller, MSP430 Launchpad, NRF24L01, Stellaris Launchpad
 title: NRF24L01 and the TI MSP430 and Stellaris Launchpads
 type: post
+template: post
 
 
 When using the Enrf24 library with Enegia these are the connections for

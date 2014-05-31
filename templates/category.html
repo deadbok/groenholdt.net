@@ -1,2 +1,24 @@
-{% extends "index.html" %}
-{% block title %}{{ SITENAME }} <small>{{ category }}</small>{% endblock %}
+{% extends "base.html" %}
+{% block title %}{{ context.settings['SITENAME'] }} - 
+{{ content.metadata['title'] }}{% endblock %}
+{% block contents %}
+{# Run through all posts sorted by date ...|sort(attribute='metadata.date', reverse=True)#}
+{% for post in posts %}
+        {% if post.metadata.template == 'post' %} 
+<div class="panel panel-default">
+        <div class="panel-heading">
+        <a href="{{ post.metadata.URL }}">
+        <h2 class="panel-title">{{ post.metadata.title }}</h2>
+        </a>
+        </div>
+        <div class="panel-body">
+        {{ post.content }}
+        </div>
+        <div class="panel-footer">
+            {% include "metadata.html" %}
+        </div>  
+</div>
+        {% endif %}
+{% endfor %}
+<p class="text-muted small">Generated on {{ content.metadata['date']  }}</p>
+{% endblock %}

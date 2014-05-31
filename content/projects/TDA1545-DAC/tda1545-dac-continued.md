@@ -4,7 +4,8 @@ slug: tda1545-dac-continued
 tags: DAC, diy audio, TDA1545, Vref cap
 title: TDA1545 DAC continued
 type: post
- 
+template: post
+
 
 As noted earlier, I had some trouble with C7 blowing the chips. I am no
 closer to being sure what the problem was, but I am beginning to suspect

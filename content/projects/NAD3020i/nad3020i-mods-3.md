@@ -4,6 +4,7 @@ slug: nad3020i-mods-3
 tags: bias, modding, NAD3020i
 title: NAD3020i mod \#3
 type: post
+template: post
 
 
 I just did some calculations on how much power the NAD will deliver in

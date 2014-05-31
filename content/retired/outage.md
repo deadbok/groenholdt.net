@@ -4,6 +4,7 @@ slug: outage
 status: hidden
 tags: server
 title: Outage
+template: post
 
 
 While cleaning out some old electronics stuff from the server/storage

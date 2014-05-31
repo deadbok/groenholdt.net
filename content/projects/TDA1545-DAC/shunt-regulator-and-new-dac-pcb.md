@@ -4,7 +4,8 @@ slug: shunt-regulator-and-new-dac-pcb
 tags: NONOS, shunt regulator, TDA1545, TL431
 title: Shunt regulator and new DAC PCB
 type: post
- 
+template: post
+
 
 I have just assembled and tested the prototype shunt regulator for the
 DAC. Inpsite of long wires and veroboard it performs a little better

@@ -4,6 +4,7 @@ slug: nad3020i-mods-1-2
 tags: modding, NAD3020i, SILVER, Thermal fuses
 title: NAD3020i mod \#2
 type: post
+template: post
 
 
 In the 3020i there a two thermal fuses (E401, E402) in the output

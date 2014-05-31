@@ -4,7 +4,8 @@ slug: status-of-the-nonos-tda1545-dac
 tags: NONOS, project, SPDIF, TDA1545
 title: Status of the NONOS TDA1545 DAC
 type: post
- 
+template: post
+
 
 Here's a list of things to be done before the final product is posted:
 

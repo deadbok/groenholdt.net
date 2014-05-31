@@ -4,6 +4,7 @@ slug: status
 status: hidden
 tags: server, wintermute
 title: Status
+template: post
 
 
 The server and this page have been offline for 815 days since I have had

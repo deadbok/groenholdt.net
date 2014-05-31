@@ -4,6 +4,7 @@ slug: schematic-and-pcb
 tags: Electronics, Linear Regulator, PCB, power supply, voltage regulator
 title: Schematic and PCB
 type: post
+template: post
 
 
 I have built and tested, the revised version of, both the positive, and

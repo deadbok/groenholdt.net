@@ -3,6 +3,7 @@ date: 2008-03-26 00:52
 slug: mobile-with-image
 status: hidden
 title: mobile with image
+template: post
 
 
 **Posted by mobile phone:**\

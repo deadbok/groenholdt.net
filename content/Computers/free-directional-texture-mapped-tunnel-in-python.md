@@ -4,6 +4,7 @@ slug: free-directional-texture-mapped-tunnel-in-python
 tags: python, demo effect
 title: Free directional texture-mapped tunnel in python
 type: post
+template: post
 
 
 Felt like doing a demo effect, I have done this once before in C and

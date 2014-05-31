@@ -4,6 +4,8 @@ slug: midi-messages-and-usb-all-the-things-i-did-not-know-about-midi
 tags: MIDI, USB
 title: MIDI messages and USB (All the things I did not know about MIDI)
 type: post
+template: post
+
 
 I am in the process of building a MIDI USB device, using a PIC18F4550. I
 have trimmed the [Microchip USB

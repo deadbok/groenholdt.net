@@ -1,9 +1,11 @@
 {% extends "base.html" %}
+{% block title %}{{ context.settings['SITENAME'] }} - 
+{{ content.metadata['title'] }}{% endblock %}
 {% block contents %}
 {% include "pagination.html" %}
 {# Run through all posts sorted by date ...|sort(attribute='metadata.date', reverse=True)#}
 {% for post in posts %}
-	{% if post.metadata.type == 'post' %} 
+	{% if post.metadata.template == 'post' %} 
 <div class="panel panel-default">
 	<div class="panel-heading">
 	<a href="{{ post.metadata.URL }}">
@@ -14,20 +16,7 @@
 	{{ post.content }}
 	</div>
 	<div class="panel-footer">
-	<strong>Author: </strong>
-	{% if post.metadata.author %} 
-		{{ post.metadata.author }}
-	{% endif %}
-	<br/>
-	<strong>Date: </strong>
-	{% if post.metadata.date %} 
-		{{ post.metadata.date }}
-	{% endif %}
-	<br/>
-	<strong>Tags: </strong>
-	{% if post.metadata.tags %} 
-		{{ post.metadata.tags }}
-	{% endif %}
+            {% include "metadata.html" %}
 	</div>	
 </div>
 	{% endif %}

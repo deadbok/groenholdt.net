@@ -4,6 +4,7 @@ slug: single-ended-class-a-radio-reciever
 tags: Headamp, oscillation, prototype, single ended
 title: Single Ended class A radio reciever
 type: post
+template: post
 
 
 Build the last simulated version of the SE class a headamp today, on

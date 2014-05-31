@@ -4,6 +4,7 @@ slug: lab-power-supply-taking-shape
 tags: discrete, Electronics, Linear Regulator, positive voltage regulator, power supply, prototype
 title: LAB Power Supply taking shape
 type: post
+template: post
 
 
 !{Prototype}($LOCALURL/DSC002241.jpg)

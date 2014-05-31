@@ -4,6 +4,7 @@ slug: preamplifier-analog-psu
 status: hidden
 tags: diyaudio, Electronics, power supply, preamplifier
 title: Preamplifier analog PSU
+template: post
 
 
 Nothing special just a fairly good filtered 317/337 regulated PSU.

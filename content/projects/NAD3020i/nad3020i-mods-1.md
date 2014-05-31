@@ -4,6 +4,7 @@ slug: nad3020i-mods-1
 tags: bias current, idle current, modding, NAD3020i, power supply capacitors
 title: NAD3020i mod \#1
 type: post
+template: post
 
 
 I replaced the PSU capacitors for the power amplifier (C508/C509) with

@@ -4,6 +4,7 @@ slug: database-loss
 status: hidden
 tags: MySQL Administrator, MySQL backup, MySQL Workbench
 title: Database loss
+template: post
 
 
 I have lost the last 3 blog entries, about the Nelson Pass designed

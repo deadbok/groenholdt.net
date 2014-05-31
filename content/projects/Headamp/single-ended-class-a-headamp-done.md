@@ -4,6 +4,8 @@ slug: single-ended-class-a-headamp-done
 tags: Class A, Final design, Headamp, single ended
 title: Single ended class A headamp done.
 type: post
+template: post
+
 
 !{Finished Single ended class A headamp}($LOCALURL/final.jpg)
 <br style="clear: both;" />

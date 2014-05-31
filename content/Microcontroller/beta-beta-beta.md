@@ -4,6 +4,7 @@ slug: beta-beta-beta
 tags: Frequency counter, measurement, Microcontroller, PICMicro
 title: BETA BETA BETA
 type: post
+template: post
 
 
 The code is not quite done yet, an horribly inefficient. Just thought I

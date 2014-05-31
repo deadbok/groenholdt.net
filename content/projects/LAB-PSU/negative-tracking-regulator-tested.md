@@ -4,6 +4,7 @@ slug: negative-tracking-regulator-tested
 tags: Electronics, negative voltage regulator, power supply, prototype
 title: Negative tracking regulator tested
 type: post
+template: post
 
 
 I have tested the negative tracking regulator today, it differs from the

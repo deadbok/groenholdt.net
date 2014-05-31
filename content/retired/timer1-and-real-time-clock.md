@@ -4,9 +4,8 @@ slug: timer1-and-real-time-clock
 status: hidden
 tags: Accelerometer, PICMicro, real time clock, RTC, Timer1
 title: Timer1 and real time clock
+template: post
 
-
- 
 
 After reading through all the timer options in the
 [PIC18F2550](http://www.microchip.com/stellent/idcplg?IdcService=SS_GET_PAGE&nodeId=1335&dDocName=en010280),

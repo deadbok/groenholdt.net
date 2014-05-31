@@ -4,6 +4,7 @@ slug: midi-controller
 tags: MIDI, MIDI controller, PIC18F4550, PICMicro, USB
 title: MIDI controller
 type: post
+template: post
 
 
 As I have mentioned, I am building a MIDI controller using the

@@ -4,6 +4,7 @@ slug: 319
 tags: DAC, diy audio, Final design, Microcontroller, NONOS, PIC16F628A, PICMicro, shunt regulator, TDA1545, TL431
 title: TDA1545 DAC schematics
 type: post
+template: post
 
 
 I have gathered together the schematics for the non oversampling TDA1545

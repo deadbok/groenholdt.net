@@ -4,6 +4,7 @@ slug: garbage-and-beethoven
 status: hidden
 tags: Beethoven, daughter, Gentoo, Herbert von Karajan
 title: Garbage and Beethoven
+template: post
 
 
 </p>

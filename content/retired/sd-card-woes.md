@@ -4,9 +4,8 @@ slug: sd-card-woes
 status: hidden
 tags: 3.3V to 5V, PICMicro, SD card, USB
 title: SD Card woes
+template: post
 
-
- 
 
 I have been working on merging the code from ["USB Mass Storage Device
 Using a

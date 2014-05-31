@@ -4,7 +4,9 @@ slug: look-what-ive-bought
 tags: NAD3020, NAD3020i
 title: Look what I've bought
 type: post
- 
+template: post
+
+
 !{NAD3020i}($LOCALURL/NAD3020i.jpg)
 Another classic for my museum ;). The NAD 3020, praised for being a very
 nice sounding amplifier, in its price range, back in 1981. I bought it

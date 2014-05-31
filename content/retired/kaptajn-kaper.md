@@ -4,6 +4,7 @@ slug: kaptajn-kaper
 status: hidden
 tags: DOS, game, Java, Kaptajn Kaper, Old, pirates
 title: Kaptajn Kaper
+template: post
 
 
 I used to play this game on my [Amstrad

@@ -4,9 +4,8 @@ slug: 33
 status: hidden
 tags: Media Center, Myth TV
 title: New Media Center box
+template: post
 
-
- 
 
 Just recieved my nice, and cheap media center box. I am going to squeeze
 MythTV in there

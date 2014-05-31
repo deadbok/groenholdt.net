@@ -4,6 +4,7 @@ slug: ubuntu-bug-1
 status: hidden
 tags: joke, Linux, ubuntu
 title: Ubuntu BUG \#1
+template: post
 
 
 Check out Ubuntu's very first bug. :P\

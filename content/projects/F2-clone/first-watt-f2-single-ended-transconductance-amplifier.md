@@ -4,6 +4,7 @@ slug: first-watt-f2-single-ended-transconductance-amplifier
 tags: Final design, First Watt F2, Full range driver, MOSFET, Nelson Pass, Power Amplifier, transconductance
 title: First Watt F2 single ended transconductance amplifier
 type: post
+template: post
 
 
 Since I lost all my post on my transconductance amplifier projects, that

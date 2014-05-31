@@ -4,6 +4,7 @@ slug: progress-report
 tags: Electronics, power supply, prototype
 title: Progress report
 type: post
+template: post
 
 
 !{Mounted PSU PCB}($LOCALURL/mounted-psu-pcb.jpg)

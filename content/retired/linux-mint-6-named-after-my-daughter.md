@@ -4,6 +4,7 @@ slug: linux-mint-6-named-after-my-daughter
 status: hidden
 tags: daughter, Linux, Mint, name
 title: Linux Mint 6 named after my daughter ;)
+template: post
 
 
 Seems the [Linux Mint 6 x64

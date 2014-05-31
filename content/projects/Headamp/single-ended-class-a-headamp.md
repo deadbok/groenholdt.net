@@ -4,6 +4,7 @@ slug: single-ended-class-a-headamp
 tags: BJT, Headamp, SE, single ended
 title: Single ended class A headamp
 type: post
+template: post
  
 
 !{Headamp schematic}($LOCALURL/se-headamp.gif)

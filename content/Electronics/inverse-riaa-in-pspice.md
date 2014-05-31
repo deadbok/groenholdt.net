@@ -4,6 +4,7 @@ slug: inverse-riaa-in-pspice
 tags: Inverse RIAA, Phono preamplifier, simulation, Spice
 title: Inverse RIAA in PSpice
 type: post
+template: post
 
 
 I have been looking for a way to simulate an inverse RIAA network in

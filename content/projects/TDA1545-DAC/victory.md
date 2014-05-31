@@ -4,6 +4,7 @@ slug: victory
 tags: DAC, diy audio, NONOS, TDA1545
 title: Victory!
 type: post
+template: post
 
 
 Finally after a thousand cups of coffee (for me that is) it is actually

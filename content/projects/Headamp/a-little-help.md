@@ -4,6 +4,7 @@ slug: a-little-help
 tags: diy audio, Final design, Headamp, single ended
 title: A little help
 type: post
+template: post
 
 
 It has been brought to my attention

@@ -4,6 +4,8 @@ slug: neat-way-of-measuring-temperature-with-a-microcontroller
 tags: Microcontroller, temperature
 title: Neat way of measuring temperature with a microcontroller
 type: post
+template: post
+
 
 While designing a fan control into another microcontroller project, I
 stumpled upon this nice design using only an external diode and

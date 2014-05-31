@@ -4,6 +4,7 @@ slug: firmware-ready
 tags: Firmware, input selector, PIC16F628A, PICMicro, relay control
 title: Firmware ready
 type: post
+template: post
 
 
 The firmware for the DAC input selector has been debugged extensively,

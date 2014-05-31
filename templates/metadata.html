@@ -1,4 +1,14 @@
-Permalink: <a class="more" href="{{ SITEURL }}/{{ article.url }}">{{ article.date }}</a>
-
- in <a href="{{ SITEURL }}/{{ article.category.url }}">{{ article.category }}</a><br />
-{% if article.tags %}tags: {% for tag in article.tags %}<a href="{{ SITEURL }}/{{ tag.url }}">{{ tag }}</a> {% endfor %}{% endif %}
+<span class="label label-default">Date:</span>
+{% if post.metadata.date %} 
+        {{ post.metadata.date }}
+{% endif %}
+<br/>
+<span class="label label-default">Tags:</span>
+{% if post.metadata.tags %} 
+        {{ post.metadata.tags }}
+{% endif %}
+<br />
+<span class="label label-default">Category:</span>
+{% for category in post.metadata.category %}
+    <a href="#">{{ category }}</a>
+{% endfor %}

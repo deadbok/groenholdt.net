@@ -4,6 +4,7 @@ slug: roger-waters-odense-2008
 status: hidden
 tags: Fionia park, Live, Odense, Pink Floyd, Roger Waters
 title: Roger Waters, Odense 2008
+template: post
 
 
 I liked this concert quite a lot better than the one in Augustenborg

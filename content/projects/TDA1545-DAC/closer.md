@@ -4,7 +4,8 @@ slug: closer
 tags: CS8412, Digital input selector, NONOS, TDA1545
 title: Closer
 type: post
- 
+template: post
+
 
 The TDA1545 DAC is nearing completion. I'm trying, for once, to make a
 nice product, somewhat operational by a simple human being.

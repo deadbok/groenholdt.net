@@ -11,8 +11,8 @@ I was given a [Medion MD86517 NAS](http://www.mikrocontroller.net/articles/P8962
 without a drive for free. I wanted to put a 2.5" disk in it, and use it as a 
 web-server. The NAS runs Linux, and the sources are [here](gpl_source_md86407.exe).
 
-I did a large part of the installation using a SATA to USB converter, since the 
-first part is done on a regular Gentoo x86/x64 PC. Start with a clean drive
+A large part of the installation was done on a regular Gentoo x86/x64 PC,
+using a SATA to USB converter. Start with a clean drive
 with no partitions, connected to the host computer (Not the NAS). 
 
 During the install, I have aimed to have all files needed for a new intall,

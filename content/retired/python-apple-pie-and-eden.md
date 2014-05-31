@@ -4,6 +4,7 @@ slug: python-apple-pie-and-eden
 status: hidden
 tags: apple pie, distbuild, EdenLinux, LAB P, power supply, Python
 title: Python, apple pie, and Eden
+template: post
 
 
 ![[Apple

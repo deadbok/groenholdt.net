@@ -4,6 +4,8 @@ slug: rip
 tags: DAC, diyaudio, NONOS, TDA1543
 title: RIP
 type: post
+template: post
+
 
 !{Mira}($LOCALURL/dsc00097.JPG)
 Nice little horsee ;). Well this nice little horsee, and my daughter

@@ -4,6 +4,7 @@ slug: f2-on-a-set-of-unmodified-3-way-speakers
 tags: cross over, First Watt F2, transconductance amplifier
 title: F2 on a set of unmodified 3 way speakers
 type: post
+template: post
 
 
 I tried playing the F2, through my ordinary 3-way speakers, just for

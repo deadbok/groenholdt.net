@@ -4,6 +4,8 @@ slug: rbroer-single-rail-active-iv
 tags: DAC, I/V, NONOS, TDA1545
 title: rbroer Single rail, active I/V
 type: post
+template: post
+
 
 !{Testing}($LOCALURL/tda1545-dac-i-v.jpg)
 Tonight I finished an active I/V stage for the TDA1545 DAC. Up until

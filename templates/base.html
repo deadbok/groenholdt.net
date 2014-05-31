@@ -4,8 +4,7 @@
     	<meta charset="utf-8">
     	<meta http-equiv="X-UA-Compatible" content="IE=edge">
     	<meta name="viewport" content="width=device-width, initial-scale=1">
-    	<title>{{ context.settings['SITENAME'] }} - 
-    	{{ content.metadata['title'] }}</title>
+    	<title>{% block title %}{% endblock %}</title>
 
     	<!-- Bootstrap -->
     	<link href="{{ context['settings']['SITEURL'] }}/static/css/bootstrap.min.css" rel="stylesheet">
@@ -34,8 +33,8 @@
           			</div>
           			<div class="navbar-collapse collapse">
             			<ul class="nav navbar-nav">
-            				<li><a class="nodeco" href="{{ context['settings']['SITEURL'] }}/pages/cat.html">Categories</a></li>
-            				<li><a class="nodeco" href="{{ context['settings']['SITEURL'] }}/pages/tag.html">Tag cloud</a></li>
+            				<li><a class="nodeco" href="{{ context['settings']['SITEURL'] }}/catindex.html">Categories</a></li>
+            				<li><a class="nodeco" href="{{ context['settings']['SITEURL'] }}/tagcloud.html">Tag cloud</a></li>
               				<li><a class="nodeco" href="{{ context['settings']['SITEURL'] }}/pages/about.html">About</a></li>
             			</ul>
           			</div><!--/.nav-collapse -->

@@ -4,6 +4,7 @@ slug: denon-dcd-3560-resurrected
 tags: DENON DCD-3560, KSS151A, laser repair, service manual, SONY CDP-228ESD
 title: Denon DCD-3560 resurrected
 type: post
+template: post
 
 
 I have had this baby sitting on a shelf for a couple of years, getting
@@ -33,3 +34,4 @@ right, with the old laser. Well the DCD-3560 is running smoothly again.
 Now there is nothing to do but hope the laser will last a long time.
 
 [DENON DCD-3560 service manual]($LOCALURL/dcd3560.pdf)
+

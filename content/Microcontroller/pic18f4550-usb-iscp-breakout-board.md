@@ -4,6 +4,7 @@ slug: pic18f4550-usb-iscp-breakout-board
 tags: Final design, Microcontroller, PCB, PIC18F4550, pickit2, USB
 title: PIC18F4550 USB ICSP breakout board
 type: post
+template: post
 
 I have some PIC18F4550s lying around, and I want to play with the USB
 features of this chip, therefore I made this breakout board. It contains

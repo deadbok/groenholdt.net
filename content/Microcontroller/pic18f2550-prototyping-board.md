@@ -4,6 +4,7 @@ slug: pic18f2550-prototyping-board
 tags: Final design, Microcontroller, PIC18F2550, pickit2, PICMicro, prototype
 title: PIC18F2550 prototyping board
 type: post
+template: post
 
 I have just finished testing a prototyping board I have designed for the
 PIC18F2550, that I will be using in a project I am doing for a friend.

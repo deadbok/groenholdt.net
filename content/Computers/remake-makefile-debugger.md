@@ -4,6 +4,7 @@ slug: remake-makefile-debugger
 tags: debug, development, Linux, make, makefiles, remake, software
 title: remake makefile debugger
 type: post
+template: post
 
 
 I have found this tool indespensible, when finding unforseen errors in

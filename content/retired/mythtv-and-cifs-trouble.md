@@ -4,6 +4,7 @@ slug: mythtv-and-cifs-trouble
 status: hidden
 tags: cifs, mount, Mythbuntu, samba
 title: MythTV and cifs trouble
+template: post
 
 
 Ever since I installed the [Mythbuntu](http://mythbuntu.org)

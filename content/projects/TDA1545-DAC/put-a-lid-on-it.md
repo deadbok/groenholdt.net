@@ -4,6 +4,8 @@ slug: put-a-lid-on-it
 tags: Firmware, PIC16F628A, pickit2, PICMicro
 title: Put a lid on it
 type: post
+template: post
+
 
 !{TDA1545 DAC without the lid}($LOCALURL/tda1545-put-a-lid-on-it.jpg)
 I have just finished mounting the µC board, to test the firmware and,

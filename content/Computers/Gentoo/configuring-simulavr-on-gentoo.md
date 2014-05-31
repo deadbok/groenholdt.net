@@ -3,6 +3,8 @@ date: 2012-08-08 19:50
 slug: configuring-simulavr-on-gentoo
 tags: avr, Gentoo, Linux
 title: Configuring simulavr on Gentoo
+type: post
+template: post
 
 
 On Gentoo I needed to point the configure script at libbfd.so. On my

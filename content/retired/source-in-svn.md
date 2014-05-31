@@ -4,6 +4,7 @@ slug: source-in-svn
 status: hidden
 tags: Accelerometer, PICMicro, source, svn
 title: Source in SVN
+template: post
 
 
 The source code for the project is browseable at my subversion

@@ -4,7 +4,8 @@ slug: dac-still-not-woking
 tags: DAC, diy audio, NONOS, TDA1545
 title: DAC still not woking
 type: post
- 
+template: post
+
 
 Damn that horse! I have spend much of the day building a TDA1545 version
 of my DAC, but with no success. The CS8412 SPDIF -\> I2S/EIAJ converter

@@ -4,6 +4,7 @@ slug: tda1545-dac-pcb-corrction
 tags: NONOS, shunt regulator, TDA1545, TL431
 title: TDA1545 DAC PCB correction
 type: post
+template: post
 
 
 There was an error in the last PCB posted, here comes the correct

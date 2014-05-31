@@ -4,6 +4,7 @@ slug: current-limiting-circuits-tested
 tags: Current limit, Electronics, power supply, prototype
 title: Current limiting circuits tested
 type: post
+template: post
 
 
 This is the final schematic, everything is now tested, and working. Had

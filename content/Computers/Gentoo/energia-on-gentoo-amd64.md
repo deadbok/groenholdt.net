@@ -3,6 +3,7 @@ date: 2013-04-15 15:47
 slug: energia-on-gentoo-amd64
 tags: arduino, Energia, Gentoo, Microcontroller, MSP430 Launchpad, Stellaris Launchpad
 title: Energia on Gentoo amd64
+template: post
 
 
 Energia IDE
