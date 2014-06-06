@@ -7,6 +7,6 @@ CONFIG = {
         'SITENAME': 'Homepage V. 5.1',
         'POSTPERINDEX': 6,
         'METAPARSERS': ['CategoryMetaParser'],
-        'GENERATORS': ['BlogIndexGenerator'],
+        'GENERATORS': ['BlogIndexGenerator', 'CategoryIndexGenerator', 'TagCloudGenerator'],
         'CONTENTFILTERS': ['LocalURL']
 }

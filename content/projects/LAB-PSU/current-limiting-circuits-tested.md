@@ -14,8 +14,8 @@ of Q6.
 <br style="clear: both;" />
 
 Refering to the figure in [LAB Power Supply taking
-shape]($LOCALURL/projects/LAB-PSU/lab-power-supply-taking-shape.html) 
-here is the rundown on the last parts.
+shape]($LOCALURL/lab-power-supply-taking-shape.html) 
+here is the run down on the last parts.
 
 5
 :   is the current limiting circuit on the positive rail. When the
