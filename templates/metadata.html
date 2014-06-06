@@ -9,6 +9,6 @@
 {% endif %}
 <br />
 <span class="label label-default">Category:</span>
-{% for category in post.metadata.category %}
-    {{ category }}/
-{% endfor %}
+{% for category in post.metadata.category -%}
+{{ category -}}/
+{%- endfor %}

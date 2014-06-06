@@ -12,15 +12,14 @@ td, th {
 @media only screen and (max-width: 640px) {
 .imgwidth {
 	width: 250px;
-}
+	}
 }
 
 @media only screen and (min-width: 641px) {
 .imgwidth {
 	width: 550px;
+	}
 }
-}
-
 
 a {
 	text-decoration: underline;
