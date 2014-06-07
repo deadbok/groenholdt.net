@@ -21,6 +21,8 @@
 </div>
 	{% endif %}
 {% endfor %}
-{% include "pagination.html" %}
+{% if page == 0 %}
+	{% include "pagination.html" %}
+{% endif %}
 <p class="text-muted small">Generated on {{ content.metadata['date']  }}</p>
 {% endblock %}

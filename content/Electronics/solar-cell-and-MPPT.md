@@ -4,6 +4,7 @@ tags: solar cell, MPPT, microcontroller, Launchpad MSP430
 title: Solar cell and MPPT with the Launchpad MSP430
 type: post
 template: post
+status: hidden
 
 
 I like the idea of being able to live of grid, and I have been making some, not

@@ -84,8 +84,11 @@ not get it to boot beyond the kernel using and ARM6 stage 3.
     tar -xvjpf stage3-armv5tel-20140115.tar.bz2 -C /mnt/gentoo
 
 Set the baud rate in /mnt/gentoo/etc/inittab to 115200. Change:
+
     #s0:12345:respawn:/sbin/agetty -L 9600 ttyS0 vt100
+
 to:
+
     s0:12345:respawn:/sbin/agetty -L 115200 ttyS0 vt100
 
 Copy ``resolv.conf`` from your host ``/etc`` directory, to have DNS working.

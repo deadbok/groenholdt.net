@@ -5,6 +5,7 @@ status: hidden
 tags: server
 title: Outage
 template: post
+type: post
 
 
 While cleaning out some old electronics stuff from the server/storage
