@@ -9,6 +9,8 @@
 {% endif %}
 <br />
 <span class="label label-default">Category:</span>
+<a href="{{ context['settings']['SITEURL'] }}{{ post.metadata.catfile }}">
 {% for category in post.metadata.category -%}
 {{ category -}}/
 {%- endfor %}
+</a>
