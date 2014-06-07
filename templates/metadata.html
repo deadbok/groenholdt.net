@@ -4,8 +4,12 @@
 {% endif %}
 <br/>
 <span class="label label-default">Tags:</span>
-{% if post.metadata.tags %} 
-        {{ post.metadata.tags }}
+{% if post.metadata.tags %}
+	{% for tag in post.metadata.tags.split(',') %}
+		<a href="{{ context['settings']['SITEURL'] }}{{ post.metadata.tagfiles[tag.lower().strip()] }}">
+		{{ tag -}} 
+		</a>,
+	{% endfor %}
 {% endif %}
 <br />
 <span class="label label-default">Category:</span>
