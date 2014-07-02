@@ -12,15 +12,15 @@ MediaTek MT7601.
 
 	Bus 001 Device 005: ID 148f:7601 Ralink Technology, Corp.
 	
+All this is for Raspian and I have gathered all the steps needed here.
+
+Driver
+======
 The driver is available at their web side download page [here](http://www.mediatek.com/en/downloads/).
 Find the one called "MT7601U USB". I have the file mirrored [here]($LOCALURL/DPO_MT7601U_LinuxSTA_3.0.0.4_20130913.tar.bz2).
 
 [These](http://va3paw.com/2014/03/16/hsmm-mesh-on-raspberry-pi/#more-629)
-instructions to work for building the driver. All this is for Raspian and I will
-elaborate a bit.
-
-Driver
-======
+instructions to work for building the driver.
 
 Become root.
 
@@ -51,12 +51,6 @@ recompile the kernel.
  
  	wget https://raw.github.com/raspberrypi/firmware/master/extra/Module.symvers
  	
-Create a symbolic link to the Linux sources, so that the driver Makefile can
-find them.
-
-	cd /lib/modules/`uname -r`
-	ln -sf /usr/src/linux build 
-
 Get the MT7601 USB driver into your home directory. Then, lets uncompress the file. 
 
 	cd ~ 
