@@ -68,8 +68,8 @@ to:
 
 Finally build the driver and install it.
 
-	sudo make
-	sudo make install
+	make
+	make install
 	
 Raspbian configuration
 ======================
@@ -98,3 +98,9 @@ Then add your WIFI name and key to ``/etc/wpa_supplicant/wpa_supplicant.conf``.
         	key_mgmt=WPA-PSK
         	psk="YOURPASSWORD"
 	}
+
+The wireless network is then brought up by:
+
+	ifup ra0
+	
+or a reboot.
