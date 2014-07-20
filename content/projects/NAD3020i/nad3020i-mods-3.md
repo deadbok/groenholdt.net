@@ -2,7 +2,7 @@ author: ObliVion
 date: 2010-05-15 21:57
 slug: nad3020i-mods-3
 tags: bias, modding, NAD3020i
-title: NAD3020i mod \#3
+title: NAD3020i mod #3
 type: post
 template: post
 

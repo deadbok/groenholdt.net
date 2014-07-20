@@ -2,7 +2,7 @@ author: ObliVion
 date: 2008-09-21 13:33
 slug: nad3020i-mods-1-2
 tags: modding, NAD3020i, SILVER, Thermal fuses
-title: NAD3020i mod \#2
+title: NAD3020i mod #2
 type: post
 template: post
 

@@ -2,7 +2,7 @@ author: ObliVion
 date: 2008-08-05 20:02
 slug: nad3020i-mods-1
 tags: bias current, idle current, modding, NAD3020i, power supply capacitors
-title: NAD3020i mod \#1
+title: NAD3020i mod #1
 type: post
 template: post
 
