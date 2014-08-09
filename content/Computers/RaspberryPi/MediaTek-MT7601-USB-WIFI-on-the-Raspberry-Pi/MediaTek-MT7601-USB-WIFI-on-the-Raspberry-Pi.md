@@ -20,7 +20,7 @@ The driver is available at their web side download page [here](http://www.mediat
 Find the one called "MT7601U USB". I have the file mirrored [here]($LOCALURL/DPO_MT7601U_LinuxSTA_3.0.0.4_20130913.tar.bz2).
 
 [These](http://va3paw.com/2014/03/16/hsmm-mesh-on-raspberry-pi/#more-629)
-instructions to work for building the driver.
+instructions work for building the driver.
 
 Become root.
 
@@ -39,7 +39,7 @@ Download linux kernel source, this is needed to compile the driver module.
  	sudo ln -s /usr/src/linux /lib/modules/`uname -r`/build
  	cd linux
 
-Compile the kernel with the current kernel config from the running system.
+Prepare the kernel with the current kernel config from the running system.
 
 	make mrproper
 	zcat /proc/config.gz > .config

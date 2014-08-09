@@ -9,7 +9,7 @@ template: post
 
 I was given a [Medion MD86517 NAS](http://www.mikrocontroller.net/articles/P89626) 
 without a drive for free. I wanted to put a 2.5" disk in it, and use it as a 
-web-server. The NAS runs Linux, and the sources are [here](gpl_source_md86407.exe).
+web-server. The NAS runs Linux, and the sources are [here](http://download2.medion.com/downloads/software/gpl_source_md86407.exe).
 
 A large part of the installation was done on a regular Gentoo x86/x64 PC,
 using a SATA to USB converter. Start with a clean drive
