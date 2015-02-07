@@ -20,14 +20,12 @@ using OpenWRT instead of Gentoo, is in the hopes that the OpenWRT folks
 will keep the kernel updated.
 
 I still have my web page, and the files from which it is generated, on
-the HDD connected to the SATA port. For other reasons, the file system
-of this HDD is NTFS, and will have to stay that way for a while. I will 
-eventually use ext4.  
+the HDD connected to the SATA port.
 
 I recommend having a serial connection to the NAS running at all times.
 
 
-Installing OpenWRT bootstrap
+Installing OpenWRT bootstrap.
 =============================
 
 This operation can only be executed once, and **may brick your device**,
@@ -221,6 +219,15 @@ have these packages available add the following to ```feeds.conf```:
 	src-git deadbok https://github.com/deadbok/deadbok-openwrt.git
 
 
+Filesystem layout.
+==================
+
+ + ```/``` OpenWRT on the internal flash.
+ + ```/mnt/data``` Root of the connected HDD.
+ + ```/mnt/data/www``` Root of the pages served by lighttpd.
+ + ```/mnt/data/log``` System log files.
+ 
+ 
 Adding custom packages.
 =======================
 *[OpenWRT wiki: OPKG Package Manager](http://wiki.openwrt.org/doc/techref/opkg)*
@@ -279,15 +286,17 @@ Installing nano.
 	opkg install nano
 	
 
-Installing an SFTP server.
+Installing kmod-fs-ext4.
+----------------------
 
+	opkg install kmod-fs-ext4
+	
 
-Installing NTFS support.
-------------------------
+Installing swap-utils.
+----------------------
 
-*Optional.*
+	opkg install swap-utils
 
-	opkg install ntfs-3g ntfs-3g-utils
 
 
 Installing SFTP server.
@@ -315,22 +324,64 @@ Installing git.
 
 *Optional, for updating my homepage and ssg.*
 
+Links in ```/usr/libexec/git-core/``` are wrong, this is corrected by
+creating the symlink, see [Bug #11930](https://dev.openwrt.org/ticket/11930).
+
 	opkg install git
+	ln -s $$(which git) /usr/libexec/git-core/git
+	
+
+Installing ca-certificates.
+---------------------------
+
+	opkg install ca-certificates
 	
 	
 Installing and setting up lighttpd.
 --------------------------------
-
-First install nginx
 	
 	opkg install lighttpd lighttpd-mod-accesslog lighttpd-mod-compress
 	
  + ```lighttpd-mod-accesslog```: Log access to the web server to a file.
  + ```lighttpd-mod-compress```: Compress data before sending them to the client.
 
-	
+
 ### Configuring lighttpd
 
 *Go read [Configuring Lighttpd](http://redmine.lighttpd.net/projects/lighttpd/wiki/TutorialConfiguration).*
 
 
+Final configuration.
+====================
+
+
+Mount points.
+-------------
+
+*[Fstab Configuration](http://wiki.openwrt.org/doc/uci/fstab)*
+
+OpenWRT uses `/etc/config/fstab` to configure mount points.
+
+ 
+	config global
+		option	anon_swap	'0'
+		option	anon_mount	'0'
+		option	auto_swap	'1'
+		option	auto_mount	'1'
+		option	delay_root	'5'
+		option	check_fs	'1'
+
+The global section tells OpenWRT 
+
+
+	config mount
+		option target 		'/mnt/data'
+		option fstype 		'ext4'
+		option options 		'rw,sync'
+		option enabled 		'1'
+		option device 		'/dev/sda2'
+		option enabled_fsck	'1'
+		
+	config swap
+		option device 		'/dev/sda3'
+		option enabled 		'1'
