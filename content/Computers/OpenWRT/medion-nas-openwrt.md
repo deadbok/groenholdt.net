@@ -201,14 +201,25 @@ On the device, interrupt uboot, then:
 	tftp 64000000 openwrt-oxnas-stg212-fit-uImage-initramfs.itb bootm
 
 
-Compiling OpenWrt
-=================
+Compiling OpenWrt.
+==================
 
-Since oxnas support is only in OpenWRT trunk, everything needs
+Since, for now, oxnas support is only in OpenWRT trunk, everything needs
 to be build.
 
-Custom feeds
-------------
+Getting the sources.
+--------------------
+
+Change into the directory where you want the sources to reside and do:
+
+    git clone git://git.openwrt.org/openwrt.git 
+    cd openwrt 
+
+Custom feeds.
+-------------
+
+*If you just want a web server, and do not need setuptools for Python 3,
+or my shiny site generator, you can skip this step.*
 
 I have made a couple of custom feeds, that addresses some specific
 Python 3 needs I have for my [static site
@@ -217,6 +228,8 @@ have these packages available add the following to ```feeds.conf```:
 
 	src-git packages https://github.com/deadbok/packages.git
 	src-git deadbok https://github.com/deadbok/deadbok-openwrt.git
+	
+Comment out the original package line in the file.
 
 
 Filesystem layout.
@@ -269,48 +282,46 @@ Update the package index.
 	opkg update
 
 
+Installing required packages.
+-----------------------------
 
-Installing the Midnight Commander.
+*File systems:*
+
+	opkg install kmod-fs-ext4 swap-utils
+
+*Web server:*
+
+	opkg install ca-certificates
+	opkg install lighttpd lighttpd-mod-accesslog lighttpd-mod-compress
+	
+ + ```lighttpd-mod-accesslog```: Log access to the web server to a file.
+ + ```lighttpd-mod-compress```: Compress data before sending them to the client.
+
+
+Installing the optional packages.
 ----------------------------------
 
-*Optional.*
+These are just tools that are nice to have.
+	
+*File manager:*
 
 	opkg install mc
 	
 
-Installing nano.
-----------------
-
-*Optional.*
+*Easy editor*
 
 	opkg install nano
-	
-
-Installing kmod-fs-ext4.
-----------------------
-
-	opkg install kmod-fs-ext4
-	
-
-Installing swap-utils.
-----------------------
-
-	opkg install swap-utils
 
 
-
-Installing SFTP server.
------------------------
-
-*Optional.* 
+*SFTP server:* 
 
 	opkg install openssh-sftp-server
 
 
-Installing Python 3 setuptools.
+Installing packages for ssg.
 -------------------------------
 
-*Optional for ssg.*
+*Python 3:*
 
 For some reason my package does not pull in the Python 3 dependency
 correctly, therefore the package ```python3``` must be installed first.
@@ -319,10 +330,7 @@ correctly, therefore the package ```python3``` must be installed first.
 	opkg install python3-setuptools
 
 
-Installing git.
----------------
-
-*Optional, for updating my homepage and ssg.*
+*Git:*
 
 Links in ```/usr/libexec/git-core/``` are wrong, this is corrected by
 creating the symlink, see [Bug #11930](https://dev.openwrt.org/ticket/11930).
@@ -330,26 +338,6 @@ creating the symlink, see [Bug #11930](https://dev.openwrt.org/ticket/11930).
 	opkg install git
 	ln -s $$(which git) /usr/libexec/git-core/git
 	
-
-Installing ca-certificates.
----------------------------
-
-	opkg install ca-certificates
-	
-	
-Installing and setting up lighttpd.
---------------------------------
-	
-	opkg install lighttpd lighttpd-mod-accesslog lighttpd-mod-compress
-	
- + ```lighttpd-mod-accesslog```: Log access to the web server to a file.
- + ```lighttpd-mod-compress```: Compress data before sending them to the client.
-
-
-### Configuring lighttpd
-
-*Go read [Configuring Lighttpd](http://redmine.lighttpd.net/projects/lighttpd/wiki/TutorialConfiguration).*
-
 
 Final configuration.
 ====================
@@ -371,7 +359,10 @@ OpenWRT uses `/etc/config/fstab` to configure mount points.
 		option	delay_root	'5'
 		option	check_fs	'1'
 
-The global section tells OpenWRT 
+The global section tells OpenWRT, to not mount any drives that to not
+have their own sectinoc in fstab (anon_*). Auto_* to mount any file
+system and swap space, from the fstab. Delay mounting for 5 seconds,
+and perform a file system check if needed. 
 
 
 	config mount
@@ -382,6 +373,82 @@ The global section tells OpenWRT
 		option device 		'/dev/sda2'
 		option enabled_fsck	'1'
 		
+This section configures `/dev/sda2` as an ext4 partition with
+read-write access, and mounts it at `/mnt/data`.
+		
 	config swap
 		option device 		'/dev/sda3'
 		option enabled 		'1'
+
+Last is the swap space from `/dev/sda3'.
+
+Create the mount point and mount the partitions.
+
+	mkdir /mnt/data
+	block mount
+
+
+Configuring lighttpd.
+---------------------
+
+*[Configuring Lighttpd](http://redmine.lighttpd.net/projects/lighttpd/wiki/TutorialConfiguration)*,
+*[Lighttpd Secure Web Server Tutorial](https://calomel.org/lighttpd.html)*
+
+Configuration is done in `/etc/lighttpd/lighttpd.conf`:
+
+	#Include the accesslog module to log web site access
+	server.modules = ( "mod_accesslog" )
+
+	#Root of the webserver is at /mnt/data/www
+	server.document-root        = "/mnt/data/www"
+
+	#Where uploaded files are stored	
+	server.upload-dirs          = ( "/mnt/data/tmp" )
+
+	#Where errors are logged
+	server.errorlog             = "/mnt/data/log/lighttpd/error.log"
+	#Process id 
+	server.pid-file             = "/var/run/lighttpd.pid"
+
+	#User and group that the server runs as
+	server.username             = "http"
+	server.groupname            = "www-data"
+
+	#Use index.html if root is requested
+	index-file.names            = ( "index.html" )
+	#Disable auto index directory listings
+	dir-listing.activate     = "disable"
+
+	#Limit request method "POST" size in kilobytes (KB)
+	server.max-request-size  = 1
+
+	#Disable multi range requests
+	server.range-requests    = "disable"
+
+	#Disable symlinks
+	server.follow-symlink    = "disable"
+
+	#Debug options
+	debug.log-file-not-found	= "enable"
+
+	#Access log module
+	accesslog.syslog-level		= "6"
+	accesslog.filename 			= "/mnt/data/log/lighttpd/access.log"
+
+	#Port to bind to
+	server.port                 = 80
+
+	include       "/etc/lighttpd/mime.conf"
+	#include_shell "cat /etc/lighttpd/conf.d/*.conf"
+
+
+
+Adding users and groups.
+------------------------
+
+
+
+
+File system permissions.
+------------------------
+
