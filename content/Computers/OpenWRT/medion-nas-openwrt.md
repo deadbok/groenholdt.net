@@ -24,6 +24,9 @@ the HDD connected to the SATA port.
 
 I recommend having a serial connection to the NAS running at all times.
 
+Table of contents.
+==================
+[TOC]
 
 Installing OpenWRT bootstrap.
 =============================
@@ -169,36 +172,7 @@ alive)
 Final configuration
 -------------------
 
-tftp
-====
-*Based on [uboot-oxnas: support booting appended FIT image](https://gitorious.org/openwrt-oxnas/openwrt-oxnas/commit/bda93c9f1c3c0a2142c992c6d2d3a5e729b27ce0).*
 
-u-boot-oxnas now supports directly booting into an 64k-aligned appended
-uImage. Using this feature, single loadable images to be fed into legacy
-bootloaders via tftp can be used to boot modern Linux kernels.
-Example:
-
-	dd if=openwrt-oxnas-ox820-u-boot.bin bs=64k of=openwrt-oxnas-ox820-u-boot.bin.pad conv=sync
-	cat openwrt-oxnas-ox820-u-boot.bin.pad openwrt-oxnas-stg212-fit-uImage-initramfs.itb > openwrt-oxnas-stg212-fit-uImage-initramfs.boot
-
-In legacy U-Boot:
-
-	tftp 64000000 openwrt-oxnas-stg212-fit-uImage-initramfs.boot 
-	nand erase 0x440000 0x400000 
-	nand write 0x64000000 0x440000 0x400000 
-	setenv bootcmd nand read 0x64000000 0x440000 0x90000\\; go 0x64000000 saveenv go 64000000
-
-(sorry guys if you got a board with 64MiB (== 0x4000000) of RAM or less, the 64000000 address is hard-coded for now, but can be changed with some effort. Let me know if anyone is affected)
-
-Unbricking with tftp
---------------------
-
- + Build OpenWRT with initramfs support compressed with xz.
- + Set up a tftp server, serving ”’openwrt-oxnas-stg212-fit-uImage-initramfs.itb”’
-
-On the device, interrupt uboot, then:
-
-	tftp 64000000 openwrt-oxnas-stg212-fit-uImage-initramfs.itb bootm
 
 
 Compiling OpenWrt.
@@ -232,13 +206,17 @@ have these packages available add the following to ```feeds.conf```:
 Comment out the original package line in the file.
 
 
-Filesystem layout.
-==================
+File system layout.
+===================
+
+There are two "disks" in the system, the internal flash, and the HDD
+connected to the SATA port.
 
  + ```/``` OpenWRT on the internal flash.
  + ```/mnt/data``` Root of the connected HDD.
  + ```/mnt/data/www``` Root of the pages served by lighttpd.
  + ```/mnt/data/log``` System log files.
+ + ```/mnt/data/tmp``` Temporary files.
  
  
 Adding custom packages.
@@ -256,7 +234,7 @@ generator](https://github.com/deadbok/ssg "Static Site Generator").
 Serving packages for OpenWRT.
 -----------------------------
 
-Like when installing the bootstrap image, you need a web server, with
+Like when installing the bootstrap image you need a web server with
 the package files available to OpenWRT. You could copy the package
 files to the HDD, but I have not tried that. ```/etc/opkg.conf``` need
 an adjustment to tell opkg (the package manager) where to find the
@@ -287,7 +265,8 @@ Installing required packages.
 
 *File systems:*
 
-	opkg install kmod-fs-ext4 swap-utils
+	opkg install kmod-fs-ext4 swap-utils opkg e2fsprogs
+	modprobe ext4
 
 *Web server:*
 
@@ -342,6 +321,32 @@ creating the symlink, see [Bug #11930](https://dev.openwrt.org/ticket/11930).
 Final configuration.
 ====================
 
+System.
+-------
+
+*[System configuration](http://wiki.openwrt.org/doc/uci/system)*
+
+Global configuration is done in `/etc/config/system`. I sent the logs to
+a file on the HDD, and limited it at 1Mb in size. The host name and the
+time zone, are important too.
+
+I have not touched the time server configuration, I only use the client
+part, and it worked out of the box.
+
+	config system
+		option hostname	OpenWrt
+		option log_file /mnt/data/log/messages
+		option log_size 1024
+		option log_type file
+		option timezone	Europe/Copenhagen 
+
+	config timeserver ntp
+		list server	0.openwrt.pool.ntp.org
+		list server	1.openwrt.pool.ntp.org
+		list server	2.openwrt.pool.ntp.org
+		list server	3.openwrt.pool.ntp.org
+		option enabled 1
+		option enable_server 0
 
 Mount points.
 -------------
@@ -386,6 +391,78 @@ Create the mount point and mount the partitions.
 
 	mkdir /mnt/data
 	block mount
+	
+Create directories for web server, logs, and temporary files.
+
+	mkdir /mnt/data/{www,log,tmp}
+
+
+
+Adding users and groups.
+------------------------
+
+OpenWRT is not build to be a multiuser system, but it is possible to
+configure it like that. There are two options, either use `shadow` like
+a desktop Linux system, or use busybox build in user handling. I have
+used the busybox version, since it is lighter.
+
+User directories are kept on the HDD and linked into the root file
+system.
+
+	mkdir -p /mnt/data/home
+	ln -sf /mnt/data/home /home
+
+Users are added using the `adduser` command. Replace `username` with
+the user name you want.
+
+	adduser username
+
+Next create the user directory and set the permissions.
+
+	mkdir /mnt/data/home/username
+	chown -R username /mnt/data/home/username
+	chmod 700 /mnt/data/home/username
+
+I still want root access, but I to log in as a regular user and `su` to
+the root account, like a desktop system. Busybox needs some setup for 
+the `su` command to work.
+	
+	chmod u+s /bin/busybox
+
+`/etc/busybox.conf`
+
+	[SUID]
+	su = ssx root.root
+	
+
+Disabling root access from ssh.
+-------------------------------
+[Dropbear Configuration](http://wiki.openwrt.org/doc/uci/dropbear)
+
+Now that `su` works, there is no reason to allow root access through 
+ssh, if you do not need ssh it would be even better to disable it.
+
+
+For non root access:
+`/etc/config/dropbear`
+
+	config dropbear
+		option PasswordAuth 	'1'
+		option RootPasswordAuth '0'
+		option RootLogin		'0'
+		option Port         	'22'
+
+Disable ssh enterily:
+
+	/etc/init.d/dropbear disable
+
+
+File system permissions.
+------------------------
+
+Permissions for `/mnt/data/www/`, the directory served by lighttpd.
+
+	chown http:www-data
 
 
 Configuring lighttpd.
@@ -440,15 +517,90 @@ Configuration is done in `/etc/lighttpd/lighttpd.conf`:
 
 	include       "/etc/lighttpd/mime.conf"
 	#include_shell "cat /etc/lighttpd/conf.d/*.conf"
+	
+I have disabled symlinks in this configuration, which means that the 
+web root directory, cannot be a symlink. You will get something like 
+`403 Forbidden` if you try. The same goes for symlinks inside the web
+root directory, they won't work.
+
+You can change this behavior by changing `server.follow-symlink = "disable"`
+to `server.follow-symlink = "enable"`, but i encourage you to read
+[this answer on Server Fault](http://serverfault.com/questions/244592/followsymlinks-on-apache-why-is-it-a-security-risk/244612#244612).
+
+
+The Webalizer, web site statistiscs.
+------------------------------------
 
 
 
-Adding users and groups.
-------------------------
+Other notes.
+============
+
+Installing an updated image.
+----------------------------
+
+*[OpenWrt Sysupgrade](http://wiki.openwrt.org/doc/howto/generic.sysupgrade)*
+
+OpenWRT has a command, `sysupgrade`, that is used to upgrade the flash 
+image from an update file. I have not been able to get this to work, and
+have ended up installing LUCI, the web configuration interface, 
+every time I need to update the root file system.
+
+	opkg install luci
+	
+This opens another can of worms, since lighttpd is happily serving pages
+on port 80, where LUCIs web server, [uHTTPd](http://wiki.openwrt.org/doc/howto/http.uhttpd),
+wants to be. To get around this, I told uHTTPd to use some other ports.
+To do this, change the ports in the lines containing `listen` in
+`/etc/config/uhttpd`, like so:
+
+	config uhttpd 'main'
+		list listen_http '0.0.0.0:8080'
+		list listen_http '[::]:8080'
+		list listen_https '0.0.0.0:4430'
+		list listen_https '[::]:4430'
+
+Then restart uHTTPd:
+
+	/etc/init.d/uhttpd restart
+
+LUCI will now be available on the current IP address, on port 8080 and
+encrypted on 4430. Use the root user/password to login in, and use
+`openwrt-oxnas-stg212-ubifs-sysupgrade.tar` to update the device.
+
+After flashing the firmware, all packages need to be reinstalled. Opkg
+will probably complain about changed config files, but this just means
+our configuration changes have been kept.
 
 
+tftp.
+-----
 
+*Based on [uboot-oxnas: support booting appended FIT image](https://gitorious.org/openwrt-oxnas/openwrt-oxnas/commit/bda93c9f1c3c0a2142c992c6d2d3a5e729b27ce0).*
 
-File system permissions.
-------------------------
+u-boot-oxnas now supports directly booting into an 64k-aligned appended
+uImage. Using this feature, single loadable images to be fed into legacy
+bootloaders via tftp can be used to boot modern Linux kernels.
+Example:
 
+	dd if=openwrt-oxnas-ox820-u-boot.bin bs=64k of=openwrt-oxnas-ox820-u-boot.bin.pad conv=sync
+	cat openwrt-oxnas-ox820-u-boot.bin.pad openwrt-oxnas-stg212-fit-uImage-initramfs.itb > openwrt-oxnas-stg212-fit-uImage-initramfs.boot
+
+In legacy U-Boot:
+
+	tftp 64000000 openwrt-oxnas-stg212-fit-uImage-initramfs.boot 
+	nand erase 0x440000 0x400000 
+	nand write 0x64000000 0x440000 0x400000 
+	setenv bootcmd nand read 0x64000000 0x440000 0x90000\\; go 0x64000000 saveenv go 64000000
+
+(sorry guys if you got a board with 64MiB (== 0x4000000) of RAM or less, the 64000000 address is hard-coded for now, but can be changed with some effort. Let me know if anyone is affected)
+
+Unbricking with tftp.
+---------------------
+
+ + Build OpenWRT with initramfs support compressed with xz.
+ + Set up a tftp server, serving ”’openwrt-oxnas-stg212-fit-uImage-initramfs.itb”’
+
+On the device, interrupt uboot, then:
+
+	tftp 64000000 openwrt-oxnas-stg212-fit-uImage-initramfs.itb bootm
