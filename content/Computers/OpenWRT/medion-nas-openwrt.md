@@ -20,7 +20,7 @@ using OpenWRT instead of Gentoo, is in the hopes that the OpenWRT folks
 will keep the kernel updated.
 
 I still have my web page, and the files from which it is generated, on
-the HDD connected to the SATA port.
+a hard disk drive, connected to the SATA port.
 
 I recommend having a serial connection to the NAS running at all times.
 
@@ -77,7 +77,15 @@ Getting the sources.
 Change into the directory where you want the sources to reside and do:
 
     git clone git://git.openwrt.org/openwrt.git 
-    cd openwrt 
+    cd openwrt
+
+Default feeds.
+--------------
+
+To have the standard set of packages available for OpenWRT copy 
+`feeds.conf.default` to `feeds.conf`.
+
+	cp feeds.conf.default feeds.conf
 
 Custom feeds.
 -------------
@@ -94,6 +102,27 @@ have these packages available add the following to ```feeds.conf```:
 	src-git deadbok https://github.com/deadbok/deadbok-openwrt.git
 	
 Comment out the original package line in the file.
+
+
+Update and add the feeds.
+-------------------------
+
+Add the packages to the build system.
+
+	./scripts/feeds update -a
+	./scripts/feeds install -a
+    
+
+Configuring the sources.
+------------------------
+
+You can download my [configuration file][Medion OX820 based NAS and Gentoo]($LOCALURL/openwrt-config),
+and use it as a basis for your own configuration. 
+
+To configure the OpenWRT build run `make menuconfig` in the  source
+directory.
+
+
 
  
 Adding custom packages.
