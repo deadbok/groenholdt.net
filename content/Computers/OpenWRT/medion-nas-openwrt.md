@@ -67,6 +67,7 @@ compiled a new OpenWRT image you can flash it, by using LUCI.
 
 Compiling OpenWrt.
 ==================
+*[OpenWrt Buildroot – About](http://wiki.openwrt.org/about/toolchain).*
 
 Since, for now, oxnas support is only in OpenWRT trunk, everything needs
 to be build.
@@ -79,8 +80,7 @@ Change into the directory where you want the sources to reside and do:
     git clone git://git.openwrt.org/openwrt.git 
     cd openwrt
 
-Default feeds.
---------------
+OpenWRT uses 
 
 To have the standard set of packages available for OpenWRT copy 
 `feeds.conf.default` to `feeds.conf`.
@@ -116,15 +116,54 @@ Add the packages to the build system.
 Configuring the sources.
 ------------------------
 
-You can download my [configuration file][Medion OX820 based NAS and Gentoo]($LOCALURL/openwrt-config),
-and use it as a basis for your own configuration. 
+You can download my [configuration file]($LOCALURL/openwrt-config),
+and use it as a basis for your own configuration.
+
+	wget $LOCALURL/openwrt-config
+	mv openwrt-config .config
 
 To configure the OpenWRT build run `make menuconfig` in the  source
 directory.
 
+I can not describe every configuration option, but here are some 
+important ones.
+
+First to build OpenWRT for the NAS these tell the build system about the
+basic hardware:
 
 
- 
+	Target System (PLXTECH/Oxford NAS782x/OX82x)
+	Target Profile (MitraStar STG-212)
+
+Under `Target Images` select 
+
++ `ubifs` is the filesystem of the images we will be building for the NAS.
+
++ `ramdisk` I always build a ramdisk as well, since it can be used to unbrick the 
+	device, if you can still access the boot loader through the serial
+	connection. Under `Target Imaqes` -> `ramdisk` make sure `xz` 
+	compression is selected.
+
+Under `Global build settings` I enable at least
+
++ `Enable shadow password support` to have encrypted passwords for 
+	users in `/etc/shadow`.
+	
++ `Support for paging of anonymous memory (swap)` To enable swap
+	functionality in the kernel.
+
+If you want to develop or debug packages in OpenWRT enable
+`Advanced configuration options (for developers)`, some sub-options
+that I use are:
+
++ `Automatic rebuild of packages` rebuilds packages when their files
+	changes.
+	
++ `Enable log files during build process` log build output in files
+	under `log/`.
+	
+Under `Base system`
+
 Adding custom packages.
 =======================
 *[OpenWRT wiki: OPKG Package Manager](http://wiki.openwrt.org/doc/techref/opkg)*
