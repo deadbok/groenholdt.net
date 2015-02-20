@@ -116,6 +116,10 @@ Add the packages to the build system.
 Configuring the sources.
 ------------------------
 
+I have configured a lot of stuff, that I am not using right now, as 
+modules, so that I can later install them if I find a need. This
+increases the build time, so it is a trade off compared to building
+just the packages that you want right now.
 You can download my [configuration file]($LOCALURL/openwrt-config),
 and use it as a basis for your own configuration.
 
@@ -151,18 +155,78 @@ Under `Global build settings` I enable at least
 	
 + `Support for paging of anonymous memory (swap)` To enable swap
 	functionality in the kernel.
-
-If you want to develop or debug packages in OpenWRT enable
-`Advanced configuration options (for developers)`, some sub-options
-that I use are:
+	
++ I disable all kernel debugging features, as this is a production
+	environment.
+	
+If you want to develop or debug the build process of packages in 
+OpenWRT enable `Advanced configuration options (for developers)`, 
+some sub-options that I use are:
 
 + `Automatic rebuild of packages` rebuilds packages when their files
 	changes.
 	
 + `Enable log files during build process` log build output in files
 	under `log/`.
-	
+
 Under `Base system`
+
++ `ca-certificates` build as a module for STFP.
+
++ Enable the `firewall` as you might want to close everything to the
+  outside.
+
++ `busybox` is customized for the multi user setup we will do later.
+	+ `Customize busybox options` enabled.
+		+ `Busybox Settings`.
+			+ `General Configuration`.
+				+ `Support Unicode` enabled to be on the safe side.
+				+ `Support for SUID/SGID handling` needed for the su
+				   command.
+		+ `Coreutils`.
+			+ `groups`, `id`, `chmod`, `chown` enabled.
+		+ `Login/Password Management Utilities`.
+			+ `Support for shadow passwords` same as earlier.
+			+ `Use internal password and group functions rather than system functions`
+			  enabled.
+				+ `Use internal shadow password functions` enabled, 
+				  to use busybox functions instead of the `shadow`
+				  package.
+			+ `adduser`, `addgroup`, `deluser`, `delgroup`, `passwd`, enabled.
+			+ `su`, enabled.
+				+ `Enable su to write to syslog`, enabled. Root access 
+				  will be logged.
+		+ `Miscellaneous Utilities`.
+			+ `crond` which I think it is enabled by default.
+			+ `crontab` which I think it is enabled by default.
+			
+In `Kernel modules` I believe that everything needed is enabled by 
+default, but there is a little more stuff that is nice.
+
++ Block Devices
+	+ `kmod-loop` as module. Loop devices are so neat.
++ `Filesystems` enable whatever you may need.
++ `LED modules` these might be fun.
+
+In `Languages` languages I enable `python3` and `setuptools` for my
+static site generator.
+
+In `LuCI` make sure to enable the basic interface and build it as a 
+module. LuCI is the only reliable way I have been able to flash a new
+image to the NAS.
+
+In `Network` a lot of thing like web servers hide.
+
++ `File Transfer`, I have `curl`, `rsync` and `wget` compiled as modules.
++ `SSH` enable `openssh-sftp-server` for SFTP access.
++ `Web Serves/Proxies` enable a web server, here I use `lighttpd`. 
+  enable `webalizer` if you want site statistics.
+				  
+Compile.
+--------
+
+	make V=s
+
 
 Adding custom packages.
 =======================
