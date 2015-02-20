@@ -77,7 +77,7 @@ designation than ``/dev/sdb``.
 Root file system
 ================
 
-Download a [stage 3 Gentoo for ARM5](http://mirrors.nl.kernel.org/gentoo//releases/arm/autobuilds/current-stage3-armv5tel/stage3-armv5tel-20140115.tar.bz2),
+Download a [stage 3 Gentoo for ARM5](http://distfiles.gentoo.org/releases/arm/autobuilds/current-stage3-armv5tel/stage3-armv5tel-20141025.tar.bz2),
 and extract it to /mnt/gentoo. Though the processor is ARM6 compatible, I could
 not get it to boot beyond the kernel using and ARM6 stage 3.
 
