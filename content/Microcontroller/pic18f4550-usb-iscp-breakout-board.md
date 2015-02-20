@@ -10,14 +10,14 @@ I have some PIC18F4550s lying around, and I want to play with the USB
 features of this chip, therefore I made this breakout board. It contains
 enough components to get the PICMicro running, and nothing more, all the
 pins are routed to pin-headers to use with an experimenter board.
-!{Schematic}($LOCALURL/pic18F4550_breakout_sch.png)
-
 
 Features:
 
 -   ICSP connector (In-Circuit Serial Programming, AKA PicKit 2 & 3)
 -   USB-B Connector
 -   20Mhz clock crystal
+
+!{Schematic}($LOCALURL/pic18F4550_breakout_sch.png)
 <br style="clear: both;" />
 
 !{PCB}($LOCALURL/pic18F4550_breakout_pcb.png)

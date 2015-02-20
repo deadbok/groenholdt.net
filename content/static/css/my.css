@@ -57,6 +57,7 @@ img.align-center, .figure.align-center, object.align-center {
 
 /* Fix for list bullets overlapping floating images
    See: http://stackoverflow.com/questions/710158/why-do-my-list-item-bullets-overlap-floating-elements */
+/*
 ul {
 	padding-left: 1em;
     list-style: outside disc;
@@ -68,6 +69,12 @@ ul li {
     left: 2em;
     padding-right: 2em;
     margin:0;  
+}
+*/
+
+ul {
+	list-style: outside disc;
+	padding-left: 1em;
 }
 
 .figure-caption {
