@@ -65,7 +65,7 @@ boot process. If everything went well LUCI, OpenWRT's web interface
 should be available on the NAS on address 192.168.1.1. When you have
 compiled a new OpenWRT image you can flash it, by using LUCI.
 
-Compiling OpenWrt.
+Building OpenWrt.
 ==================
 *[OpenWrt Buildroot – About](http://wiki.openwrt.org/about/toolchain).*
 
@@ -208,14 +208,14 @@ default, but there is a little more stuff that is nice.
 + `Filesystems` enable whatever you may need.
 + `LED modules` these might be fun.
 
-In `Languages` languages I enable `python3` and `setuptools` for my
+In `Languages` I enable `python3` and `setuptools` for my
 static site generator.
 
 In `LuCI` make sure to enable the basic interface and build it as a 
 module. LuCI is the only reliable way I have been able to flash a new
 image to the NAS.
 
-In `Network` a lot of thing like web servers hide.
+In `Network` a lot of things like web servers hide.
 
 + `File Transfer`, I have `curl`, `rsync` and `wget` compiled as modules.
 + `SSH` enable `openssh-sftp-server` for SFTP access.
@@ -224,8 +224,12 @@ In `Network` a lot of thing like web servers hide.
 				  
 Compile.
 --------
+Just run `make`. To see all output from the build process use: 
 
 	make V=s
+
+The images en up in `bin/oxnas`, along with the packages. I flash 
+`openwrt-oxnas-stg212-ubifs-sysupgrade.tar` using LuCI.
 
 
 Adding custom packages.
@@ -244,7 +248,8 @@ Serving packages for OpenWRT.
 -----------------------------
 
 Like when installing the bootstrap image you need a web server with
-the package files available to OpenWRT. You could copy the package
+the package files available to OpenWRT. I assume that the OpenWRT
+package tree is copied to the root of the server. You could copy the package
 files to the HDD, but I have not tried that. ```/etc/opkg.conf``` need
 an adjustment to tell opkg (the package manager) where to find the
 packages:
