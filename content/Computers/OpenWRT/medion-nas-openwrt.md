@@ -8,8 +8,8 @@ template: post
 
 After getting Gentoo to run on the Medion NAS in these posts,
 
- + [Medion OX820 based NAS and Gentoo]($LOCALURL../Gentoo/medion-0x820-based-nas/medion-ox820-based-nas.html)
- + [Medion NAS native kernel compile]($LOCALURL../Gentoo/medion-nas-native-kernel-compile.html)
+ + [Medion OX820 based NAS and Gentoo]($LOCALURL/../Gentoo/medion-0x820-based-nas/medion-ox820-based-nas.html)
+ + [Medion NAS native kernel compile]($LOCALURL/../Gentoo/medion-nas-native-kernel-compile.html)
 
 I learned that [OpenWRT](http://openwrt.org) had been ported to the oxnas platform. This 
 appealed to me, as OpenWRT is installed on the internal flash. Honestly
