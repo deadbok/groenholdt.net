@@ -288,9 +288,16 @@ Installing required packages.
 
 	opkg install ca-certificates
 	opkg install lighttpd lighttpd-mod-accesslog lighttpd-mod-compress
+	opkg install lighttpd-mod-status lighttpd-mod-alias
 	
  + ```lighttpd-mod-accesslog```: Log access to the web server to a file.
  + ```lighttpd-mod-compress```: Compress data before sending them to the client.
+ +`lighttpd-mod-status`: Publishes some status information about the server.
+ +`lighttpd-mod-alias`: Allows you to point an URL at a specific directory.
+ 
+*Web serrver statistics:*
+
+	opkg install webalizer
 
 
 Installing the optional packages.
@@ -566,6 +573,7 @@ to `server.follow-symlink = "enable"`, but i encourage you to read
 
 The Webalizer, web site statistiscs.
 ------------------------------------
+*(The webalizer)[http://www.webalizer.org/]*
 
 To run `webalizer`, create a cron job for it in `/etc/crontab/http`, by
 putting the jop in the `http` file, cron is told to run it as the `http`
@@ -573,9 +581,14 @@ user.
 
 	0 */12 * * * /usr/bin/webalizer -q
 	
+There is a thoroughly commented config file in `/etc/webalizer.conf.sample`,
+to use this as a the base for your changes, copy the file to `/etc/webalizer.conf`.
+	
+	cp /etc/webalizer.conf.sample /etc/webalizer.conf
+	
 Make the configuration file readable to all users.
 
-	chmod a+r /etc/webalizer.conf
+	chmod a+r /etc/webalizer.conf 
 
 Create the directories, and set user `http`, group `www-data` as owner.
 Make the directory writable by all members of the group `www-data`. This
