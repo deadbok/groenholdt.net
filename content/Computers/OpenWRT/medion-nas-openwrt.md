@@ -71,6 +71,9 @@ Building OpenWrt.
 Since, for now, oxnas support is only in OpenWRT trunk, everything needs
 to be build.
 
+I build this on a [Gentoo](http://gentoo.org/) system, which seems to 
+need automake-1.14 installed for glib2 to build.
+
 Getting the sources.
 --------------------
 
