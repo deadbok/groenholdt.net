@@ -1,0 +1,16 @@
+--- ca-certificates-20141019.old/mozilla/Makefile	2015-02-24 23:47:35.482132028 +0100
++++ ca-certificates-20141019/mozilla/Makefile	2015-02-24 23:59:03.816526664 +0100
+@@ -2,8 +2,12 @@
+ # Makefile
+ #
+ 
++ifndef PYTHON
++PYTHON := python2
++endif
++
+ all:
+-	python certdata2pem.py
++	$(PYTHON) certdata2pem.py
+ 
+ clean:
+ 	-rm -f *.crt
