@@ -13,7 +13,7 @@ microcontroller, and the input selector. The digital input circuitry was
 developed after reading [some post from Jocko Homo on the diyhifi.org
 forum](http://www.diyhifi.org/forums/viewtopic.php?p=5707#p5707). The
 TDA1545 circuit is mostly from the Philips [data
-sheet](http://groenholdt.net/wp-content/uploads/file/TDA1545AT.pdf). The
+sheet]($LOCALURL/TDA1545AT.pdf). The
 I/V stage is [from rbroer on
 DIYAudio](http://www.diyaudio.com/forums/digital-line-level/28144-single-rail-active-i-v-tda1543-tda1545a.html?perpage=50&pagenumber=1).
 
@@ -24,7 +24,7 @@ memory it seems correct.
 
 From the top here is the input selector board, the micro controller for
 the relays are on a second board, as per the block diagram.
-!{Digital input selector]($LOCALURL/Digital-input-selector-cs8412.png)
+!{Digital input selector}($LOCALURL/Digital-input-selector-cs8412.png)
 <br style="clear: both;" />
 
 After the relays, comes the SPDIF buffer/amplifier circuit based on
