@@ -143,9 +143,9 @@ basic hardware:
 
 Under `Target Images` select 
 
-+ `ubifs` is the filesystem of the images we will be building for the NAS.
++ `ubifs` is the file system of the images we will be building for the NAS.
 
-+ `ramdisk` I always build a ramdisk as well, since it can be used to unbrick the 
++ `ramdisk` I always build a RAM disk as well, since it can be used to unbrick the 
 	device, if you can still access the boot loader through the serial
 	connection. Under `Target Imaqes` -> `ramdisk` make sure `xz` 
 	compression is selected.
@@ -173,7 +173,7 @@ some sub-options that I use are:
 
 Under `Base system`
 
-+ `ca-certificates` build as a module for STFP.
++ `ca-certificates` build as a module for STFP, HTTPS etc.
 
 + Enable the `firewall` as you might want to close everything to the
   outside.
@@ -199,8 +199,8 @@ Under `Base system`
 				+ `Enable su to write to syslog`, enabled. Root access 
 				  will be logged.
 		+ `Miscellaneous Utilities`.
-			+ `crond` which I think it is enabled by default.
-			+ `crontab` which I think it is enabled by default.
+			+ `crond` which I think is enabled by default.
+			+ `crontab` which I think is enabled by default.
 			
 In `Kernel modules` I believe that everything needed is enabled by 
 default, but there is a little more stuff that is nice.
@@ -221,8 +221,8 @@ In `Network` a lot of things like web servers hide.
 
 + `File Transfer`, I have `curl`, `rsync` and `wget` compiled as modules.
 + `SSH` enable `openssh-sftp-server` for SFTP access.
-+ `Web Serves/Proxies` enable a web server, here I use `lighttpd`. 
-  enable `webalizer` if you want site statistics.
++ `Web Serves/Proxies` enable a web server, I use `lighttpd`. 
+  Enable `webalizer` if you want site statistics.
 				  
 Compile.
 --------
@@ -237,7 +237,7 @@ process use:
 
 	make V=s
 
-The images en up in `bin/oxnas`, along with the packages. I flash 
+The images end up in `bin/oxnas`, along with the packages. I flash 
 `openwrt-oxnas-stg212-ubifs-sysupgrade.tar` using LuCI.
 
 
@@ -295,12 +295,13 @@ Installing required packages.
 
 	opkg install ca-certificates
 	opkg install lighttpd lighttpd-mod-accesslog lighttpd-mod-compress
-	opkg install lighttpd-mod-status lighttpd-mod-alias
+	opkg install lighttpd-mod-status lighttpd-mod-alias lighttpd-mod-access
 	
  + ```lighttpd-mod-accesslog```: Log access to the web server to a file.
  + ```lighttpd-mod-compress```: Compress data before sending them to the client.
  +`lighttpd-mod-status`: Publishes some status information about the server.
  +`lighttpd-mod-alias`: Allows you to point an URL at a specific directory.
+ +`lighttpd-mod-access`: Restrict access.
  
 *Web server statistics:*
 
@@ -448,12 +449,6 @@ Create the mount point and mount the partitions.
 Create directories for web server, logs, and temporary files.
 
 	mkdir /mnt/data/{www,log,tmp}
-	
-Link `/var/log` to the new location, to make sure [everybody knows](https://www.youtube.com/watch?v=Lin-a2lTelg).
-
-	cd /var
-	rm -fvR log
-	ln -sf (mnt/data/log log
 
 
 Adding users and groups.
@@ -573,6 +568,14 @@ Configuration is done in `/etc/lighttpd/lighttpd.conf`:
 
 	#Port to bind to
 	server.port                 = 80
+	
+	# Deny the access to statistics to all user which 
+    # are not in the 192.168.0.x network
+    $HTTP["remoteip"] !~ "^(192\.168\.0\.)" {
+      $HTTP["url"] =~ "^/stats/" {
+        url.access-deny = ( "" )
+      }
+    }
 
 	include       "/etc/lighttpd/mime.conf"
 	#include_shell "cat /etc/lighttpd/conf.d/*.conf"
@@ -586,6 +589,8 @@ You can change this behavior by changing `server.follow-symlink = "disable"`
 to `server.follow-symlink = "enable"`, but i encourage you to read
 [this answer on Server Fault](http://serverfault.com/questions/244592/followsymlinks-on-apache-why-is-it-a-security-risk/244612#244612).
 
+Replace `"^(192\.168\.0\.)"` with an IP matching your local network.
+
 Enable lighttpd at boot.
 
 	/etc/init.d/lighttpd enable
@@ -596,7 +601,7 @@ The Webalizer, web site statistiscs.
 *(The webalizer)[http://www.webalizer.org/]*
 
 To run `webalizer`, create a cron job for it in `/etc/crontab/http`, by
-putting the jop in the `http` file, cron is told to run it as the `http`
+putting the job in the `http` file, cron is told to run it as the `http`
 user.
 
 	0 */12 * * * /usr/bin/webalizer -q
