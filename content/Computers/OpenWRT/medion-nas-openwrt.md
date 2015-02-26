@@ -448,7 +448,12 @@ Create the mount point and mount the partitions.
 Create directories for web server, logs, and temporary files.
 
 	mkdir /mnt/data/{www,log,tmp}
+	
+Link `/var/log` to the new location, to make sure [everybody knows](https://www.youtube.com/watch?v=Lin-a2lTelg).
 
+	cd /var
+	rm -fvR log
+	ln -sf (mnt/data/log log
 
 
 Adding users and groups.
