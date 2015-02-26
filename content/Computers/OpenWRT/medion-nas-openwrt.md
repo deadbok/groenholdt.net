@@ -302,7 +302,7 @@ Installing required packages.
  +`lighttpd-mod-status`: Publishes some status information about the server.
  +`lighttpd-mod-alias`: Allows you to point an URL at a specific directory.
  
-*Web serrver statistics:*
+*Web server statistics:*
 
 	opkg install webalizer
 
@@ -325,6 +325,10 @@ These are just tools that are nice to have.
 *SFTP server:* 
 
 	opkg install openssh-sftp-server
+	
+*USB mass storage support (aka. USB stick)*
+
+	opkg install kmod-usb-storage-extras
 
 
 Installing packages for ssg.
@@ -789,7 +793,7 @@ Here is my configuration:
 	#AllURLs	no
 	#AllReferrers	no
 	#AllAgents	no
-	AllSearchStr	no
+	AllSearchStr	yes
 	#AllUsers       no
 
 	# Your own site should be hidden
