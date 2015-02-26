@@ -34,7 +34,7 @@ It turns out the file named
 database file with all text messages in the backup. After eyeballing the
 file with [SQLite Database
 Browser](http://sqlitebrowser.sourceforge.net/), exporting it to a CSV
-file, importing it in [LibreOffice](http://libreoffice.org) Calc, I
+file, importing it in [LibreOffice](http://www.libreoffice.org/) Calc, I
 found it hard to manage the more than 30,000 messages that way.
 
 In the end I made a python script that saves the messages to text files,

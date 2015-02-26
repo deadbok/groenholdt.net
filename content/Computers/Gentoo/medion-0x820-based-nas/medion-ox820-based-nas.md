@@ -23,7 +23,7 @@ want this.
 !{The serial port connection}($LOCALURL/nas_serial_port.png)
 
 *Much of this stuff needs root permissions, and all the NAS side stuff is done
-through a serial connection.* If something is unclear, read [The Gentoo handbook](http://www.gentoo.org/doc/en/handbook/),
+through a serial connection.* If something is unclear, read [The Gentoo handbook](https://wiki.gentoo.org/wiki/Handbook:Main_Page),
 this is in esence the same procedure, except I boot into the system instead of
 chrooting.
 
