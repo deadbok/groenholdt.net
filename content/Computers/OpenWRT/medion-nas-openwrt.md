@@ -571,8 +571,8 @@ Configuration is done in `/etc/lighttpd/lighttpd.conf`:
 	
 	# Deny the access to statistics to all user which 
     # are not in the 192.168.0.x network
-    $HTTP["remoteip"] !~ "^(192\.168\.0\.)" {
-      $HTTP["url"] =~ "^/stats/" {
+    $$HTTP["remoteip"] !~ "^(192\.168\.0\.)" {
+      $$HTTP["url"] =~ "^/stats/" {
         url.access-deny = ( "" )
       }
     }
