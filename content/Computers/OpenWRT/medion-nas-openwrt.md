@@ -589,7 +589,8 @@ You can change this behavior by changing `server.follow-symlink = "disable"`
 to `server.follow-symlink = "enable"`, but i encourage you to read
 [this answer on Server Fault](http://serverfault.com/questions/244592/followsymlinks-on-apache-why-is-it-a-security-risk/244612#244612).
 
-Replace `"^(192\.168\.0\.)"` with an IP matching your local network.
+Access to webalizer is restricted to computers on the local network,
+replace `"^(192\.168\.0\.)"` with an IP matching your network.
 
 Enable lighttpd at boot.
 
