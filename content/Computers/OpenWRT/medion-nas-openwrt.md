@@ -878,8 +878,4 @@ access the files.
 	chown http:www-data /mnt/data/www/stats -R
 	chmod g+w /mnt/data/www/stats -R
 	
-To not have search bots index the statistics, create a `/mnt/data/www/robots.txt` 
-file with the following contents.
 
-	User-agent: *
-	Disallow: /stats
