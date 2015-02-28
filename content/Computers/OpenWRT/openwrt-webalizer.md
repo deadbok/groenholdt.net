@@ -6,7 +6,7 @@ title: The webalizer statistics on OpenWRT
 type: post
 template: post
 
-(The webalizer)[http://www.webalizer.org/] is a program, that scans web
+[The webalizer](http://www.webalizer.org/) is a program, that scans web
 server log files, and creates statistics from the entries. Since
 webalizer uses log files, there are no cookies involved, and webalizer
 uses flat files for storage, no database to install. Webalizer is
