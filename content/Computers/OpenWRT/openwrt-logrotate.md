@@ -1,5 +1,5 @@
 author: ObliVion
-date: 2015-02-27 16:215
+date: 2015-02-27 16:21
 slug: OpenWRT-logrotate
 tags: OpenWRT, logrotate
 title: Rotating lighhtpd logs on OpenWRT
