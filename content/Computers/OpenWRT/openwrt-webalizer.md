@@ -307,17 +307,17 @@ Here is my configuration:
 
 These are important options:
 
- + OutputDir		`/mnt/data/www/stats`
- + Incremental	`yes`
+ + `OutputDir		/mnt/data/www/stats`
+ + `Incremental		yes`
 	Save state information, so that webalizer will not forget, even if
 	the logs are cleared.
- + HostName		`groenholdt.net`
+ + `HostName		groenholdt.net`
 	The host name of your server.
- + OmitPage		`/stats/`
+ + `OmitPage		/stats/`
 	Do not keep statistics of the statistics.
- + HideSite	`*groenholdt.net`
- + HideSite	`localhost`
- + HideReferrer	groenholdt.net/
+ + `HideSite		*groenholdt.net`
+ + `HideSite		localhost`
+ + `HideReferrer	groenholdt.net/`
 	Hide access from oneself from the "Top" lists. 
 	
 Make the configuration file readable to all users.

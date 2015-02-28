@@ -39,5 +39,5 @@ file by sending it the SIGHUP signal.
 `logrotate` needs to be run daily, so set up a cron job for it. Add the 
 following to run logrotate once a day at 8:00.
 
- 0 8 * * * *     /usr/sbin/logrotate -s /mnt/data/tmp/logrotate.state /etc/logrotate.conf
+	0 8 * * * *     /usr/sbin/logrotate -s /mnt/data/tmp/logrotate.state /etc/logrotate.conf
   
