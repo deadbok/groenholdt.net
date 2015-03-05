@@ -147,3 +147,8 @@ a.tag10 {
     text-decoration: none; 
 }
 ​
+//PLaying with wrapping of code and pre elements
+code, pre {
+	white-space:	pre-wrap !important;
+	word-wrap:		break-word !important;
+}
