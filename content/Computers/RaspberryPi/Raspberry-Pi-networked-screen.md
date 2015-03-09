@@ -1,10 +1,9 @@
 author: ObliVion
 date: 2015-03-07 17:36
-tags: Raspberry Pi, Raspbian, network, screen, synergy, ssh tunnel
+tags: Raspberry Pi, Raspbian, network, TV, synergy, ssh tunnel
 title: Raspberry Pi as a networked screen (Poor mans version).
 type: post
 template: post
-status: hidden
 
 
 I needed a second screen for my netbook, as the screen real estate was not
