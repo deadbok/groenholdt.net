@@ -16,7 +16,8 @@ All this is for Raspian and I have gathered all the steps needed here.
 
 Driver
 ======
-The driver is available at their web side download page [here](http://www.mediatek.com/en/downloads/).
+The driver is available at their web side download page [here](http://www.mediatek.com/en/downloads/)
+(there is an error on that page, select 71610U for linux. [Link](http://www.mediatek.com/en/downloads/mt7610u-usb/).
 Find the one called "MT7601U USB". I have the file mirrored [here]($LOCALURL/DPO_MT7601U_LinuxSTA_3.0.0.4_20130913.tar.bz2).
 
 [These](http://va3paw.com/2014/03/16/hsmm-mesh-on-raspberry-pi/#more-629)
