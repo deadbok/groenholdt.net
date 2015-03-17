@@ -10,7 +10,7 @@ template: post
 It has been brought to my attention
 [here](http://forum.audioplatinum.com/viewtopic.php?p=13544#p13544) that
 my instruction for building the [Single ended class A
-headamp]({filename}/single-ended-class-a-headamp-done.rst) is not
+headamp]($LOCALURL/single-ended-class-a-headamp-done.html) is not
 complete.
 
 !{Input circuitry for one channel}($LOCALURL/headamp-thermal-coupling.jpg)
