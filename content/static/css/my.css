@@ -147,8 +147,18 @@ a.tag10 {
     text-decoration: none; 
 }
 ​
-//PLaying with wrapping of code and pre elements
+//Playing with wrapping of code and pre elements
 code, pre {
 	white-space:	pre-wrap !important;
 	word-wrap:		break-word !important;
+}
+
+#Seems to big for me by default
+h1,
+.h1 {
+  font-size: 32px;
+}
+h2,
+.h2 {
+  font-size: 28px;
 }
