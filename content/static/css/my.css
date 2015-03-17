@@ -33,7 +33,7 @@ div.figure {
   	margin-bottom: 0.5em;
   	margin-left: 0.2em;
   	margin-right: 0.5em;
-  	padding 1em;
+  	padding: 1em;
 }
 
 img.align-left, .figure.align-left, object.align-left {
@@ -154,11 +154,10 @@ code, pre {
 }
 
 #Seems to big for me by default
-h1,
-.h1 {
+h1, .h1 {
   font-size: 32px;
 }
-h2,
-.h2 {
+
+h2, .h2 {
   font-size: 28px;
 }
