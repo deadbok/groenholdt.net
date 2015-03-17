@@ -153,7 +153,7 @@ code, pre {
 	word-wrap:		break-word !important;
 }
 
-//* Seems to big for me by default */
+/* Seems to big for me by default */
 h1, .h1 {
   font-size: 32px;
 }
