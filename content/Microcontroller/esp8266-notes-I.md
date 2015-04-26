@@ -17,4 +17,5 @@ experiments.
    Model B's serial port works fine.
  - In SoftAP mode, the SDK seems to set up a DHCP server on 192.168.4.1, all
    without me doing anything but setting the mode, and the AP config.
+ - Baud rate at boot is 74880.
    
