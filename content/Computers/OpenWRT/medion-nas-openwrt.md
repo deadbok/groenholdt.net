@@ -540,6 +540,9 @@ Configuration is done in `/etc/lighttpd/lighttpd.conf`:
 	#User and group that the server runs as
 	server.username             = "http"
 	server.groupname            = "www-data"
+    
+    #Do n ot send server version
+    server.tag                  = "youdliketoknow"
 
 	#Use index.html if root is requested
 	index-file.names            = ( "index.html" )
