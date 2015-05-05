@@ -20,7 +20,5 @@ Network.
  - The connect callback returns a pointer to the `struct espconn` in the `arg` 
    parameter. It is not the same as the one used by `espconn_accept`.
  - In `struct espconn`, member reverse, seems to be free to use.
- - The `disconnect_callback`receives a strange pointer in `arg`. It seems to be
-   a valid `struct espconn`, with the right data. The pointer itself however, 
-   does not have the address, of the structure that was supplied, when the
-   connection was created. Could be a copy?
+ - The `disconnect_callback`receives a pointer to the listening connection,
+   *not* the active connected one, at least when in TCP server mode.
