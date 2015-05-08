@@ -18,4 +18,5 @@ experiments.
  - In SoftAP mode, the SDK seems to set up a DHCP server on 192.168.4.1, all
    without me doing anything but setting the mode, and the AP config.
  - Baud rate at boot is 74880.
-   
+ - Untested [Zero-wire auto-reset](http://nerdralph.blogspot.dk/2015/04/zero-wire-auto-reset-for-esp8266arduino.html).
+   (`esptool.py` needs a modification to send the break signal).

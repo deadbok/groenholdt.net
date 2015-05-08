@@ -19,6 +19,7 @@ Network.
  - Some basic code for connecting to a WIFI. [GitHub](https://github.com/deadbok/esp8266-connect-ap)
  - The connect callback returns a pointer to the `struct espconn` in the `arg` 
    parameter. It is not the same as the one used by `espconn_accept`.
- - In `struct espconn`, member reverse, seems to be free to use.
  - The `disconnect_callback`receives a pointer to the listening connection,
    *not* the active connected one, at least when in TCP server mode.
+ - In `struct espconn`, member reverse, seems to be free to use., except in the
+   disconnect callback, where it suddenly has a new value.
