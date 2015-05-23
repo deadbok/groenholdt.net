@@ -23,3 +23,12 @@ Network.
    *not* the active connected one, at least when in TCP server mode.
  - In `struct espconn`, member reverse, seems to be free to use., except in the
    disconnect callback, where it suddenly has a new value.
+   
+Flash.
+------
+ - It seems the file system of choice is best placed after the code in flash.
+ - On suggestion from [Dave Hylands](http://www.davehylands.com/), I use a ZIP
+   file as file system image. The file is uncompressed and used as a simple
+   container.
+   
+   system 
