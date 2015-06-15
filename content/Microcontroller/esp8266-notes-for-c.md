@@ -13,6 +13,13 @@ General.
 --------
  - Prefixing a function with "ICACHE_FLASH_ATTR" places it in flash,
    not doing so places the function in RAM.
+ - The IoT SDK is single tasked and event driven. I've always found event
+   driven programming a pain, but this implementation stinks. There is no way
+   to return to the system, in the middle of processing, to not stall the
+   system tasks. The docs, says that you not may stay in a function for more 
+   than 10 ms, without the system code getting behind. If I were to start
+   over I would try the FreeRTOS SDK, unfortunately it seems that Espressif is
+   giving it less love.
 
 Network.
 --------
