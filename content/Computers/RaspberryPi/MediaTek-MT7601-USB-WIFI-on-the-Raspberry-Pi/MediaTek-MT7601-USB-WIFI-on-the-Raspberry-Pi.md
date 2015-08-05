@@ -20,8 +20,7 @@ Driver
 2015 August update
 ------------------
 
-There are now a couple of alternative drivers, and from kernel 4.2 on of
-them is included. 
+There are now a couple of alternative drivers, and an in kernel one, from 4.2 on. 
 
  Kernel version       | URL
  ---------------------|--------
