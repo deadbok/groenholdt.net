@@ -16,7 +16,23 @@ All this is for Raspian and I have gathered all the steps needed here.
 
 Driver
 ======
-The driver is available at their web side download page [here](http://www.mediatek.com/en/downloads/)
+
+2015 August update
+------------------
+
+There are now a couple of alternative drivers, and from kernel 4.2 on of
+them is included. 
+
+ Kernel version       | URL
+ ---------------------|--------
+ from 3.0             | [https://github.com/porjo/mt7601](https://github.com/porjo/mt7601)
+ Between 3.19 and 4.2 | [https://github.com/kuba-moo/mt7601u](https://github.com/kuba-moo/mt7601u)
+ From 4.2             | Included in kernel as ```mt7601u```
+
+Old MediaTek driver
+-------------------
+
+The driver is available at MediaTek's download page [here](http://www.mediatek.com/en/downloads/)
 (there is an error on that page, select 71610U for linux. [Link](http://www.mediatek.com/en/downloads/mt7610u-usb/).
 Find the one called "MT7601U USB". I have the file mirrored [here]($LOCALURL/DPO_MT7601U_LinuxSTA_3.0.0.4_20130913.tar.bz2).
 
