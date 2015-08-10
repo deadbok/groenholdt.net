@@ -36,7 +36,7 @@ Add this to -xsessionrc:
 	matchbox-window-manager  -use_titlebar no &
 	#Update files in /home/kiosk and start chromium
 	while true; do
-		rsync -qr --delete --exclude='.Xauthority' /opt/kiosk/ $HOME/
+		rsync -qr --delete --exclude='.Xauthority' /opt/kiosk/ $$HOME/
 		chromium --app=http://straylight:5000
 	done
 
@@ -47,6 +47,3 @@ Edit ```/etc/lightdm/lightdm.conf``` and change to following;
 
 	autologin-user = kiosk
 	autologin-timeout = 0
-
-
-
