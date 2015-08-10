@@ -1,6 +1,5 @@
 author: ObliVion
 date: 2015-08-10 03:25
-status: hidden
 tags: gentoo, portage
 title: Regenerating all manifest in the portage tree
 template: post
