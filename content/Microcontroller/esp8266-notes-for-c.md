@@ -37,5 +37,4 @@ Flash.
  - On suggestion from [Dave Hylands](http://www.davehylands.com/), I use a ZIP
    file as file system image. The file is uncompressed and used as a simple
    container.
-   
-   system 
+
