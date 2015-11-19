@@ -66,7 +66,7 @@ Callbacks.
 The SDK network API is event based. The way this works is that you
 register some functions for the API to call when certain events happen 
 (connected, disconnected, data received, and so on).
-Your callback function receives a parameter called ``rag``, from the SDK,
+Your callback function receives a parameter called ``arg``, from the SDK,
 which is a pointer to an espconn struct (defined in espconn.h in the
 SDK). This struct contains the connection information. You will probably
 need a way to identify a connection as it triggers the callbacks. I have 
@@ -114,9 +114,9 @@ why bother when the whole thing may break with some later version of the
 SDK, and there is a nicer option outlined in the *Programming Guide*?
 
 The solution from the *Programming Guide* is to use the remote address 
-and port of the connection to identify each connection. This took a
-little more code, but when done, revealed a few things about the flow
-of the connections in the API.
+and port to identify each connection. This took a little more code, but
+when done, revealed a few things about the flow of the connections in
+the API.
 
 Connection flow in the ESP8266 API.
 ===================================
