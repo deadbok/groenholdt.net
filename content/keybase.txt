@@ -1,0 +1,69 @@
+==================================================================
+https://keybase.io/deadbok
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of http://groenholdt.net
+  * I am deadbok (https://keybase.io/deadbok) on keybase.
+  * I have a public key with fingerprint 900B 8B4A D311 11F6 F464  FD8A 4D8A BF24 E9FC 5F97
+
+To do so, I am signing this object:
+
+{
+    "body": {
+        "key": {
+            "eldest_kid": "0101701424522890264186fe0a75aaceafbc25bf30347936536cdb32ff747978ae190a",
+            "fingerprint": "900b8b4ad31111f6f464fd8a4d8abf24e9fc5f97",
+            "host": "keybase.io",
+            "key_id": "4d8abf24e9fc5f97",
+            "kid": "0101701424522890264186fe0a75aaceafbc25bf30347936536cdb32ff747978ae190a",
+            "uid": "508e6908d314141dbc105e2a3515d119",
+            "username": "deadbok"
+        },
+        "service": {
+            "hostname": "groenholdt.net",
+            "protocol": "http:"
+        },
+        "type": "web_service_binding",
+        "version": 1
+    },
+    "ctime": 1447927194,
+    "expire_in": 157680000,
+    "prev": "d16f41657af3ac30c0d82ec8c0028fd033651778cc81eee284b9af9ff6ccd32b",
+    "seqno": 4,
+    "tag": "signature"
+}
+
+which yields the signature:
+
+-----BEGIN PGP MESSAGE-----
+Version: Keybase OpenPGP v2.0.49
+Comment: https://keybase.io/crypto
+
+yMIlAnicrVJbSBVBGD7HNM2UNLsQJMYSCiU2s/c93aAeetGwMosyTrOzM8dN2z3u
+WW+YCb1J0UtXTYuyerLIjCSNyChBRBGyC5FZYVGmdRKUDLrMSr312D8Mw/zzfd98
+/8//MHmOL9H/Cb9FL56flP193WfKfYV5zY01nG4b1VyghishswcpNUjEDZaYBhfg
+AARQAVDkRYnnVQ3wsghVmRKAFAkhTBDVMS/pVACCqGiCLAkyNnSBp1Rhd0VFBGoA
+cdkcNa0QccKOablMVgNAV3URGQJkQWUqyiI1VCSyrVNeJBrFEtUURiy2Ix6DmdNR
+hOSYNsuxS3DW3j/w/9l3+aycBFQia0BlfkW2DB1DIBEeCRKUDAg1DxghjoUOEoY2
+CDJ0u4SrzeZYssLExOurV8gfQMixiVVslxpujkVcRg47tmtju5S9FbtuOOBR3eqw
+h60kevCPSlA3LYP1kREqiBMxbYsLQIbErunJQpFZ5xWoidkcqQqbDgmaHkJSZBWw
+8L4hFZ4/yBoOZUlBVEBYABgYKk+wigHgVWoAgfUDKoqKsQoJIbwq6hqiGqUyxobA
+65xXV5llcwH2k4tCTDJihizkljuEq31wvyjW50/0zY2L8ebLlzgv5e/UZR2O/5m9
+78SdtJmu5vnrC6cufNnV8fXSE6lwW2PTFBy4kr/4bNpgK7yclK6NJFdm1OV3Hkp5
+FBLXxSrXKqebr7eLW5XP96ba6iO9TUW5PWPmkndCrp0xtyVaNfEheDu66PjHoZuh
+X8JY056C833+Gx2xb1pP7s4c6+lHK8bbypZ1v2yJPk7zx3C3ovVJBd8zovMzp5O4
+ncOgZufm4tM/CsbPpW9q77xbdiA1eeXCii0DV+IX7xezLtY1pPXHTMR1Hetznqam
+jOYNDW84UjOUm+DbvffU6wU99NnG6U5ydKRkddvSkVe/tk/ueD+4jfYmXH13K5L+
+DTYUblk6Wrd8cvvaptpV19bM/AY5JkMN
+=sbe3
+-----END PGP MESSAGE-----
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/deadbok
+
+==================================================================
+
