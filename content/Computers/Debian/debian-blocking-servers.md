@@ -78,7 +78,7 @@ lighttpd.conf:
 
 Add this:
 
-	$SERVER["socket"] == "192.168.0.201:80" {
+	$$SERVER["socket"] == "192.168.0.201:80" {
 	   server.document-root = "/var/www/blocked"
 	}
 	
