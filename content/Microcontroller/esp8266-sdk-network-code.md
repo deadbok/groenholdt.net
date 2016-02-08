@@ -259,7 +259,7 @@ Calling SDK disconnect.
 -----------------------
 
 According to the SDK docs, rather than calling the disconnect function
-from a network callback function, through a task. My code has mostly 
-worked without doing this, but it will give the SDK time to do some
-processing in between the callback and the disconnect, and I am going
-to try this in time.
+from a network callback function, it should be invoked through a task.
+My code has mostly worked without doing this, but it will give the SDK
+time to do some processing in between the callback and the disconnect,
+and I am going to try this in time.
