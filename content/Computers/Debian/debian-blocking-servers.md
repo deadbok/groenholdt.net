@@ -1,5 +1,5 @@
 author: ObliVion
-date: 2016-08-08 03:07
+date: 2016-08-02 03:07
 tags: debian, dnsmasq, blocking, lighttpd
 title: Blocking domains on local network using dnsmasq on Debian.
 template: post
@@ -35,9 +35,9 @@ Using dnsmasq to redirect domains.
 dnsmasq.conf:
 -------------
 
-If your configured dnsmasq to listen on an interface, reconfigure it to
-use addresses to make stuff prettier when assigning another IP address
-on the interface in a little while.
+If your dnsmasq is configured to listen on an interface, reconfigure it
+to use addresses to make stuff prettier when assigning another IP
+address to the interface in a little while.
 
 	listen-address=192.168.0.1
 	listen-address=127.0.0.1
@@ -93,7 +93,7 @@ index.html
 	<title>Server blocked.</title>
 	</head>
 	<body>
-	<p>This server is blocket on this network.</p>
+	<p>This server is blocked on this network.</p>
 	</body>
 	</html>
 
