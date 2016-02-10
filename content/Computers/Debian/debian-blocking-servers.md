@@ -1,5 +1,5 @@
 author: ObliVion
-date: 2016-08-02 03:07
+date: 2016-02-08 03:07
 tags: debian, dnsmasq, blocking, lighttpd
 title: Blocking domains on local network using dnsmasq on Debian.
 template: post
