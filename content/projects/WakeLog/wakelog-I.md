@@ -4,7 +4,6 @@ tags: WakeLog, ESP8266, Sming, Android, Microcontroller
 title: WakeLog simple WIFI enabled event logger - Introduction.
 type: post
 template: post
-status: hidden
 
 
 Lately I have had the need for a device to do some simple logging.
