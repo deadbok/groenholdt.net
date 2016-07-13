@@ -146,10 +146,10 @@ a.tag10 {
     font-weight: 900; 
     text-decoration: none; 
 }
-​
+
 /* Playing with wrapping of code and pre elements. */
 pre {
-	padding: 0;
+	padding: 0px;
 }
 
 /* Seems to big for me by default */
