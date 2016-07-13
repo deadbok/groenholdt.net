@@ -16,11 +16,12 @@
       	<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
       	<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     	<![endif]-->
+    	<link href="{{ context['settings']['SITEURL'] }}/static/css/prettify/prettify.css" type="text/css" rel="stylesheet" />
     	<meta name="generator" content="Static Site Generator (https://github.com/deadbok/ssg)">
     	<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
 		<link rel="icon" href="/favicon.ico" type="image/x-icon">
   	</head>
-  	<body>
+  	<body onload="prettyPrint()">
 		<div class="container">
 		    <!-- Static navbar -->
       		<div class="navbar navbar-default" role="navigation">
@@ -59,5 +60,9 @@
     	<script src="{{ context['settings']['SITEURL'] }}/static/js/jquery-1.11.0.min.js"></script>
     	<!-- Include all compiled plugins (below), or include individual files as needed -->
     	<script src="{{ context['settings']['SITEURL'] }}/static/js/bootstrap.min.js"></script>
+    	<script>
+			$('pre code').addClass('prettyprint');
+    	</script>
+    	<script type="text/javascript" src="{{ context['settings']['SITEURL'] }}/static/js/prettify/prettify.js"></script>
   	</body>
 </html>
