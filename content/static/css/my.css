@@ -148,9 +148,8 @@ a.tag10 {
 }
 ​
 /* Playing with wrapping of code and pre elements. */
-code, pre {
-	white-space:	pre-wrap !important;
-	word-wrap:		break-word !important;
+pre {
+	padding: 0;
 }
 
 /* Seems to big for me by default */
