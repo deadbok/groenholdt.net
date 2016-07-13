@@ -16,5 +16,5 @@ Using `find`, this give a list of the files:
 	
 Combine it with touch , to change the date to the current.
 
-	find . -newermt "5 days" -print -exec touch -c {} \;
+	find . -newermt "5 days" -ls -exec touch -c {} \;
 	
