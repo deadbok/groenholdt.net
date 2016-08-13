@@ -23,9 +23,9 @@
 		<link rel="icon" href="/favicon.ico" type="image/x-icon">
   	</head>
   	<body>
-		<div class="container">
+		<div class="container-fluid">
 		    <!-- Static navbar -->
-      		<div class="navbar navbar-default" role="navigation">
+      		<div class="navbar navbar-default navbar-static-top" role="navigation">
         		<div class="container-fluid">
           			<div class="navbar-header">
             			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -47,15 +47,15 @@
  			</div>
 	  		<div class="content">
 				{% block contents %}{% endblock %}
-				<hr />
-				<footer>
-		  			<p class="text-muted small">Powered by <a href="https://github.com/deadbok/ssg">Static Site Generator</a>. Theme based on <a href="https://bootswatch.com/journal/">Bootswatch Journal</a>.<br />
-		  										Copyright &copy; 2008-2015 {{ context.settings['AUTHOR'] }}<br />
-		  										<a rel="license" href="https://creativecommons.org/licenses/by-nc/4.0/"><img alt="Creative Commons License" style="float: right; border-width:0" src="https://i.creativecommons.org/l/by-nc/4.0/88x31.png" /></a><br /><span xmlns:dct="https://purl.org/dc/terms/" property="dct:title">Homepage and and creations</span> by <a xmlns:cc="https://creativecommons.org/ns#" href="{{ context['settings']['SITEURL'] }}" property="cc:attributionName" rel="cc:attributionURL">Martin Bo Kristensen Grønholdt</a> is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by-nc/4.0/">Creative Commons Attribution-NonCommercial 4.0 International License unless otherwise stated.</a>.<br />Permissions beyond the scope of this license may be available at <a xmlns:cc="https://creativecommons.org/ns#" href="{{ context['settings']['SITEURL'] }}/pages/license.html" rel="cc:morePermissions">{{ context['settings']['SITEURL'] }}/pages/license.html</a>.
-		  										</p>
-				</footer>
 	  		</div>
 		</div>
+		<hr />
+		<footer class="container-fluid">
+			<p class="text-muted small">Powered by <a href="https://github.com/deadbok/ssg">Static Site Generator</a>. Theme based on <a href="https://bootswatch.com/journal/">Bootswatch Journal</a>.
+										Copyright &copy; 2008-2016 {{ context.settings['AUTHOR'] }}<br />
+										<a rel="license" href="https://creativecommons.org/licenses/by-nc/4.0/"><img id="lic_link" alt="Creative Commons License" style="float: right; border-width:0" src="https://i.creativecommons.org/l/by-nc/4.0/88x31.png" /></a><br /><span xmlns:dct="https://purl.org/dc/terms/" property="dct:title">Homepage and and creations</span> by <a xmlns:cc="https://creativecommons.org/ns#" href="{{ context['settings']['SITEURL'] }}" property="cc:attributionName" rel="cc:attributionURL">Martin Bo Kristensen Grønholdt</a> is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by-nc/4.0/">Creative Commons Attribution-NonCommercial 4.0 International License unless otherwise stated.</a>. Permissions beyond the scope of this license may be available at <a xmlns:cc="https://creativecommons.org/ns#" href="{{ context['settings']['SITEURL'] }}/pages/license.html" rel="cc:morePermissions">{{ context['settings']['SITEURL'] }}/pages/license.html</a>.
+			</p>
+		</footer>
 
     	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     	<script src="{{ context['settings']['SITEURL'] }}/static/js/jquery-1.11.0.min.js"></script>
