@@ -6,13 +6,511 @@
     	<meta name="viewport" content="width=device-width, initial-scale=1">
     	<title>{% block title %}{% endblock %}</title>
 
-    	<!-- Bootstrap -->
-    	<link href="{{ context['settings']['SITEURL'] }}/static/css/bootstrap.min.css" rel="stylesheet">
-    	<!-- Syntax highlight -->
-    	<link rel="stylesheet" href="{{ context['settings']['SITEURL'] }}/static/css/tomorrow.css">
+	<style>
+html {
+  font-family: sans-serif;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+}
+
+a {
+  background-color: transparent;
+}
+
+button {
+  color: inherit;
+  font: inherit;
+  margin: 0;
+}
+
+button {
+  overflow: visible;
+}
+
+button {
+  text-transform: none;
+}
+
+button {
+  -webkit-appearance: button;
+}
+
+button::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+*:before,
+*:after {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 10px;
+}
+
+body {
+  font-family: Georgia,"Times New Roman",Times,serif;
+  font-size: 15px;
+  line-height: 1.42857143;
+  color: #777777;
+  background-color: #ffffff;
+}
+
+button {
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+}
+
+a {
+  color: #eb6864;
+  text-decoration: none;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+h2 {
+  font-family: "News Cycle","Arial Narrow Bold",sans-serif;
+  font-weight: 700;
+  line-height: 1.1;
+  color: #000000;
+}
+
+h2 {
+  margin-top: 21px;
+  margin-bottom: 10.5px;
+}
+
+h2 {
+  font-size: 32px;
+}
+
+p {
+  margin: 0 0 10.5px;
+}
+
+ul {
+  margin-top: 0;
+  margin-bottom: 10.5px;
+}
+
+ul ul {
+  margin-bottom: 0;
+}
+
+.container-fluid {
+  margin-right: auto;
+  margin-left: auto;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.collapse {
+  display: none;
+}
+
+.nav {
+  margin-bottom: 0;
+  padding-left: 0;
+  list-style: none;
+}
+
+.nav>li {
+  position: relative;
+  display: block;
+}
+
+.nav>li>a {
+  position: relative;
+  display: block;
+  padding: 10px 15px;
+}
+
+.navbar {
+  position: relative;
+  min-height: 60px;
+  margin-bottom: 21px;
+  border: 1px solid transparent;
+}
+
+@media (min-width:768px) {
+  .navbar {
+    border-radius: 4px;
+  }
+}
+
+@media (min-width:768px) {
+  .navbar-header {
+    float: left;
+  }
+}
+
+.navbar-collapse {
+  overflow-x: visible;
+  padding-right: 15px;
+  padding-left: 15px;
+  border-top: 1px solid transparent;
+  -webkit-box-shadow: inset 0 1px 0 rgba(255,255,255,0.1);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.1);
+  -webkit-overflow-scrolling: touch;
+}
+
+@media (min-width:768px) {
+  .navbar-collapse {
+    width: auto;
+    border-top: 0;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+  }
+
+  .navbar-collapse.collapse {
+    display: block !important;
+    height: auto !important;
+    padding-bottom: 0;
+    overflow: visible !important;
+  }
+
+  .navbar-static-top .navbar-collapse {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
+.container-fluid>.navbar-header,
+.container-fluid>.navbar-collapse {
+  margin-right: -15px;
+  margin-left: -15px;
+}
+
+@media (min-width:768px) {
+  .container-fluid>.navbar-header,
+  .container-fluid>.navbar-collapse {
+    margin-right: 0;
+    margin-left: 0;
+  }
+}
+
+.navbar-static-top {
+  z-index: 1000;
+  border-width: 0 0 1px;
+}
+
+@media (min-width:768px) {
+  .navbar-static-top {
+    border-radius: 0;
+  }
+}
+
+.navbar-brand {
+  float: left;
+  padding: 19.5px 15px;
+  font-size: 19px;
+  line-height: 21px;
+  height: 60px;
+}
+
+@media (min-width:768px) {
+  .navbar>.container-fluid .navbar-brand {
+    margin-left: -15px;
+  }
+}
+
+.navbar-toggle {
+  position: relative;
+  float: right;
+  margin-right: 15px;
+  padding: 9px 10px;
+  margin-top: 13px;
+  margin-bottom: 13px;
+  background-color: transparent;
+  background-image: none;
+  border: 1px solid transparent;
+  border-radius: 4px;
+}
+
+.navbar-toggle .icon-bar {
+  display: block;
+  width: 22px;
+  height: 2px;
+  border-radius: 1px;
+}
+
+.navbar-toggle .icon-bar+.icon-bar {
+  margin-top: 4px;
+}
+
+@media (min-width:768px) {
+  .navbar-toggle {
+    display: none;
+  }
+}
+
+.navbar-nav {
+  margin: 9.75px -15px;
+}
+
+.navbar-nav>li>a {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  line-height: 21px;
+}
+
+@media (min-width:768px) {
+  .navbar-nav {
+    float: left;
+    margin: 0;
+  }
+
+  .navbar-nav>li {
+    float: left;
+  }
+
+  .navbar-nav>li>a {
+    padding-top: 19.5px;
+    padding-bottom: 19.5px;
+  }
+}
+
+.navbar-default {
+  background-color: #ffffff;
+  border-color: #eeeeee;
+}
+
+.navbar-default .navbar-brand {
+  color: #000000;
+}
+
+.navbar-default .navbar-nav>li>a {
+  color: #000000;
+}
+
+.navbar-default .navbar-toggle {
+  border-color: #dddddd;
+}
+
+.navbar-default .navbar-toggle .icon-bar {
+  background-color: #cccccc;
+}
+
+.navbar-default .navbar-collapse {
+  border-color: #eeeeee;
+}
+
+.pagination {
+  display: inline-block;
+  padding-left: 0;
+  margin: 21px 0;
+  border-radius: 4px;
+}
+
+.pagination>li {
+  display: inline;
+}
+
+.pagination>li>a {
+  position: relative;
+  float: left;
+  padding: 8px 12px;
+  line-height: 1.42857143;
+  text-decoration: none;
+  color: #eb6864;
+  background-color: #ffffff;
+  border: 1px solid #dddddd;
+  margin-left: -1px;
+}
+
+.pagination>li:first-child>a {
+  margin-left: 0;
+  border-bottom-left-radius: 4px;
+  border-top-left-radius: 4px;
+}
+
+.pagination>li:last-child>a {
+  border-bottom-right-radius: 4px;
+  border-top-right-radius: 4px;
+}
+
+.pagination>.active>a {
+  z-index: 3;
+  color: #999999;
+  background-color: #f5f5f5;
+  border-color: #dddddd;
+}
+
+.pagination-sm>li>a {
+  padding: 5px 10px;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.pagination-sm>li:first-child>a {
+  border-bottom-left-radius: 3px;
+  border-top-left-radius: 3px;
+}
+
+.pagination-sm>li:last-child>a {
+  border-bottom-right-radius: 3px;
+  border-top-right-radius: 3px;
+}
+
+.label {
+  display: inline;
+  padding: .2em .6em .3em;
+  font-size: 75%;
+  font-weight: bold;
+  line-height: 1;
+  color: #ffffff;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: baseline;
+  border-radius: .25em;
+}
+
+.label-default {
+  background-color: #999999;
+}
+
+.panel {
+  margin-bottom: 21px;
+  background-color: #ffffff;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  -webkit-box-shadow: 0 1px 1px rgba(0,0,0,0.05);
+  box-shadow: 0 1px 1px rgba(0,0,0,0.05);
+}
+
+.panel-body {
+  padding: 15px;
+}
+
+.panel-heading {
+  padding: 10px 15px;
+  border-bottom: 1px solid transparent;
+  border-top-right-radius: 3px;
+  border-top-left-radius: 3px;
+}
+
+.panel-title {
+  margin-top: 0;
+  margin-bottom: 0;
+  font-size: 17px;
+  color: inherit;
+}
+
+.panel-footer {
+  padding: 10px 15px;
+  background-color: #f5f5f5;
+  border-top: 1px solid #dddddd;
+  border-bottom-right-radius: 3px;
+  border-bottom-left-radius: 3px;
+}
+
+.panel-default {
+  border-color: #dddddd;
+}
+
+.panel-default>.panel-heading {
+  color: #777777;
+  background-color: #f5f5f5;
+  border-color: #dddddd;
+}
+
+.container-fluid:before,
+.container-fluid:after,
+.nav:before,
+.nav:after,
+.navbar:before,
+.navbar:after,
+.navbar-header:before,
+.navbar-header:after,
+.navbar-collapse:before,
+.navbar-collapse:after,
+.panel-body:before,
+.panel-body:after {
+  content: " ";
+  display: table;
+}
+
+.container-fluid:after,
+.nav:after,
+.navbar:after,
+.navbar-header:after,
+.navbar-collapse:after,
+.panel-body:after {
+  clear: both;
+}
+
+@-ms-viewport {
+  width: device-width;
+}
+
+.navbar {
+  font-size: 18px;
+  font-family: "News Cycle","Arial Narrow Bold",sans-serif;
+  font-weight: 700;
+}
+
+.navbar-brand {
+  font-size: inherit;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+@CHARSET "UTF-8";
+
+table {
+  border: 1px solid black;
+}
+
+a {
+  text-decoration: underline;
+}
+
+ul {
+  list-style: outside disc;
+  padding-left: 1em;
+}
+
+h2 {
+  font-size: 28px;
+}
+
+.content {
+  margin-left: 1%;
+  margin-right: 1%;
+}
+</style>
+	<noscript id="deferred-styles">
+    		<!-- Bootstrap -->
+    		<link href="{{ context['settings']['SITEURL'] }}/static/css/journal.min.css" rel="stylesheet">
+    		<!-- Syntax highlight -->
+    		<link rel="stylesheet" href="{{ context['settings']['SITEURL'] }}/static/css/tomorrow.css">
 		<!-- Overrides -->
-    	<link href="{{ context['settings']['SITEURL'] }}/static/css/my.css" rel="stylesheet">
-    	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    		<link href="{{ context['settings']['SITEURL'] }}/static/css/my.css" rel="stylesheet">
+    	</noscript>
+	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     	<!--[if lt IE 9]>
       	<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
@@ -23,9 +521,9 @@
 		<link rel="icon" href="/favicon.ico" type="image/x-icon">
   	</head>
   	<body>
-		<div class="container">
+		<div class="container-fluid">
 		    <!-- Static navbar -->
-      		<div class="navbar navbar-default" role="navigation">
+      		<div class="navbar navbar-default navbar-static-top" role="navigation">
         		<div class="container-fluid">
           			<div class="navbar-header">
             			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -47,21 +545,51 @@
  			</div>
 	  		<div class="content">
 				{% block contents %}{% endblock %}
-				<hr />
-				<footer>
-		  			<p class="text-muted small">Powered by <a href="https://github.com/deadbok/ssg">Static Site Generator</a>. Theme based on <a href="https://bootswatch.com/journal/">Bootswatch Journal</a>.<br />
-		  										Copyright &copy; 2008-2015 {{ context.settings['AUTHOR'] }}<br />
-		  										<a rel="license" href="https://creativecommons.org/licenses/by-nc/4.0/"><img alt="Creative Commons License" style="float: right; border-width:0" src="https://i.creativecommons.org/l/by-nc/4.0/88x31.png" /></a><br /><span xmlns:dct="https://purl.org/dc/terms/" property="dct:title">Homepage and and creations</span> by <a xmlns:cc="https://creativecommons.org/ns#" href="{{ context['settings']['SITEURL'] }}" property="cc:attributionName" rel="cc:attributionURL">Martin Bo Kristensen Grønholdt</a> is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by-nc/4.0/">Creative Commons Attribution-NonCommercial 4.0 International License unless otherwise stated.</a>.<br />Permissions beyond the scope of this license may be available at <a xmlns:cc="https://creativecommons.org/ns#" href="{{ context['settings']['SITEURL'] }}/pages/license.html" rel="cc:morePermissions">{{ context['settings']['SITEURL'] }}/pages/license.html</a>.
-		  										</p>
-				</footer>
 	  		</div>
 		</div>
+		<hr />
+		<footer class="container-fluid">
+			<p class="text-muted small">Powered by <a href="https://github.com/deadbok/ssg">Static Site Generator</a>. Theme based on <a href="https://bootswatch.com/journal/">Bootswatch Journal</a>.
+										Copyright &copy; 2008-2016 {{ context.settings['AUTHOR'] }}<br />
+										<a rel="license" href="https://creativecommons.org/licenses/by-nc/4.0/"><img id="lic_link" alt="Creative Commons License" style="float: right; border-width:0" src="https://i.creativecommons.org/l/by-nc/4.0/88x31.png" /></a><br /><span xmlns:dct="https://purl.org/dc/terms/" property="dct:title">Homepage and and creations</span> by <a xmlns:cc="https://creativecommons.org/ns#" href="{{ context['settings']['SITEURL'] }}" property="cc:attributionName" rel="cc:attributionURL">Martin Bo Kristensen Grønholdt</a> is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by-nc/4.0/">Creative Commons Attribution-NonCommercial 4.0 International License unless otherwise stated.</a>. Permissions beyond the scope of this license may be available at <a xmlns:cc="https://creativecommons.org/ns#" href="{{ context['settings']['SITEURL'] }}/pages/license.html" rel="cc:morePermissions">{{ context['settings']['SITEURL'] }}/pages/license.html</a>.
+			</p>
+		</footer>
 
     	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     	<script src="{{ context['settings']['SITEURL'] }}/static/js/jquery-1.11.0.min.js"></script>
     	<!-- Include all compiled plugins (below), or include individual files as needed -->
     	<script src="{{ context['settings']['SITEURL'] }}/static/js/bootstrap.min.js"></script>
-		<script src="{{ context['settings']['SITEURL'] }}/static/js/highlight.pack.js"></script>
-		<script>hljs.initHighlightingOnLoad();</script>
+	<script src="{{ context['settings']['SITEURL'] }}/static/js/highlight.pack.js"></script>
+	<script src="{{ context['settings']['SITEURL'] }}/static/js/responsive-paginate.js"></script>
+	<script>
+		hljs.initHighlightingOnLoad();
+
+		$(document).ready(function () {
+    			$(".pagination").rPage();
+		});
+
+      		var loadDeferredStyles = function()
+		{
+        		var addStylesNode = document.getElementById("deferred-styles");
+        		var replacement = document.createElement("div");
+        		replacement.innerHTML = addStylesNode.textContent;
+        		document.body.appendChild(replacement)
+        		addStylesNode.parentElement.removeChild(addStylesNode);
+      		};
+
+      		var raf = requestAnimationFrame || mozRequestAnimationFrame ||
+          		  webkitRequestAnimationFrame || msRequestAnimationFrame;
+
+      		if (raf)
+		{
+			raf(function() {
+				window.setTimeout(loadDeferredStyles, 0);
+			});
+		}
+	      	else
+		{
+			window.addEventListener('load', loadDeferredStyles);
+		}
+    </script>
   	</body>
 </html>
