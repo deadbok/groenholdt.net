@@ -1,5 +1,5 @@
 author: ObliVion
-date: 2016-29-11 20:05
+date: 2016-11-29 20:05
 tags: Linux, console, beep, happy birthday
 title: Happy birthday with beep
 type: post
