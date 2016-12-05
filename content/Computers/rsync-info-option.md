@@ -1,5 +1,5 @@
 author: ObliVion
-date: 2016-15-09 20:44
+date: 2016-09-15 20:44
 tags: rsync, sync, linux, windows, file transfer
 title: rsync --info option
 type: post
