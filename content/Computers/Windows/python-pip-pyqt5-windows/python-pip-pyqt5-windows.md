@@ -43,6 +43,8 @@ installation directory and use `pip.exe` to install PyQT5.
 
 !{Installing on my current computer in running Windows 10}($LOCALURL/python-pip-pyqt5-windows.png)
 
+
+
 **Setting the PATH**
 
 If you expect on doing this a lot it would be a good idea to add the path of
