@@ -7,13 +7,13 @@ type: post
 template: post
 
 
-I was given a [Medion MD86517 NAS](http://www.mikrocontroller.net/articles/P89626) 
-without a drive for free. I wanted to put a 2.5" disk in it, and use it as a 
+I was given a [Medion MD86517 NAS](http://www.mikrocontroller.net/articles/P89626)
+without a drive for free. I wanted to put a 2.5" disk in it, and use it as a
 web-server. The NAS runs Linux, and the sources are [here](http://download2.medion.com/downloads/software/gpl_source_md86407.exe).
 
 A large part of the installation was done on a regular Gentoo x86/x64 PC,
 using a SATA to USB converter. Start with a clean drive
-with no partitions, connected to the host computer (Not the NAS). 
+with no partitions, connected to the host computer (Not the NAS).
 
 During the install, I have aimed to have all files needed for a new intall,
 located on the NAS drive itself, in the hopes that it will make a reinstall,
@@ -24,7 +24,7 @@ want this.
 
 *Much of this stuff needs root permissions, and all the NAS side stuff is done
 through a serial connection.* If something is unclear, read [The Gentoo handbook](https://wiki.gentoo.org/wiki/Handbook:Main_Page),
-this is in esence the same procedure, except I boot into the system instead of
+this is in essence the same procedure, except I boot into the system instead of
 chrooting.
 
 A lot of thanks and credit to the people in [this thread](http://archlinuxarm.org/forum/viewtopic.php?f=55&t=6193),
@@ -36,9 +36,9 @@ Partitioning
 To boot from the SATA disk, a special partition layout is needed. The ox820
 reads the start of the drive, to check if it is bootable. A script has been
 written to put the right data in the first part of the hard disk.
-Download [disk creation files]($LOCALURL/onax-sata_boot.tar.gz) created by 
-[WarheadsSE](https://github.com/WarheadsSE), extract the files somewhere, and 
-enter that directory. **Edit the disk_create script to change the target drive 
+Download [disk creation files]($LOCALURL/onax-sata_boot.tar.gz) created by
+[WarheadsSE](https://github.com/WarheadsSE), extract the files somewhere, and
+enter that directory. **Edit the disk_create script to change the target drive
 in the variable ``disk``.**
 
 Creating the partitions
@@ -54,25 +54,25 @@ Fire up fdisk to partition the disk.
 
 - Create a small partition for U-Boot, stage1, and the kernel. WarheadsSE
   recommends a 10M partition. **This partition must start at sector 2048.**
- 
+
 - Create a second partition for the root file system, leave a little space
   left for a swap partition.
 
 - Create a third partition for swap space. Set it as swap type.
-    
-    
+
+
 Format the second and third partition, I use ext4 as the root file system.
 
     mkfs.ext4 /dev/sdb2
     mkswap /dev/sdb3
- 
+
 Last, mount the second partition to /mnt/gentoo, your partition may have another
 designation than ``/dev/sdb``.
 
     cd /mnt
     mkdir gentoo
     mount /dev/sdb2 /mnt/gentoo
- 
+
 
 Root file system
 ================
@@ -94,7 +94,7 @@ to:
 Copy ``resolv.conf`` from your host ``/etc`` directory, to have DNS working.
 
     cp -L /etc/resolv.conf /mnt/gentoo/etc/resolv.conf
-  
+
 Create a link from ``net.lo`` to ``net.eth0`` to enable the network at first
 boot.
 
@@ -116,12 +116,12 @@ when you boot the NAS.
     cp /etc/passwd /mnt/gentoo/etc/passwd
     cp /etc/shadow /mnt/gentoo/etc/shadow
     cp /etc/group /mnt/gentoo/etc/group
-  
+
 Select mirrors for portage.
 
     mirrorselect -i -o >> /mnt/gentoo/etc/portage/make.conf
     mirrorselect -i -r -o >> /mnt/gentoo/etc/portage/make.conf
-  
+
 Set the timezone.
 
     echo "Europe/Copenhagen" > /mnt/gentoo/etc/timezone
@@ -139,7 +139,7 @@ Last edit and change ``UTC`` to local if needed.
 
     nano -w /etc/conf.d/hwclock
 
-    
+
 Kernel
 ======
 
@@ -147,9 +147,9 @@ You will need an ARM cross-compiler, Gentoo's ``crossdev`` comes in handy.
 
     crossdev -t armv5tel-softfloat-linux-gnueabi
 
-Clone [linux-oxnas](https://github.com/kref/linux-oxnas) into 
+Clone [linux-oxnas](https://github.com/kref/linux-oxnas) into
 ``/mnt/gentoo/usr/src``.
-  
+
     cd /mnt/gentoo/usr/src
     git clone https://github.com/kref/linux-oxnas
     ln -sf linux-oxnas linux
@@ -162,7 +162,7 @@ Clone [linux-oxnas](https://github.com/kref/linux-oxnas) into
     [*] Use appended device tree blob to zImage (EXPERIMENTAL)
     [*] Supplement the appended DTB with traditional ATAG information
     disable PCI support if you device does not have one
-  
+
 Remember to compile in support for the root file system type, if you did like me
 this means enabling the ext4 file system.
 
@@ -185,7 +185,7 @@ Copy WarheadsSE's disk creation files (contents of onax-sata-boot.tar.gz) to the
 
     mkdir /mnt/gentoo/usr/src/disk_create
     cp -Rv (Where you unpacked the files)/* /mnt/gentoo/usr/src/disk_create
-  
+
 Integrate the new kernel into WarheadsSE's tool.
 
     cd /mnt/gentoo/usr/src/disk_create
@@ -211,12 +211,12 @@ First Boot
 
 Set the clock. MMDDhhmmCCYY is month, date, hour, minute, century, year
 
-    date MMDDhhmmCCYY 
- 
+    date MMDDhhmmCCYY
+
 Get the portage tree.
 
     emerge --sync
-  
+
 Set the Profile.
 
     eselect profile list
@@ -224,18 +224,18 @@ Set the Profile.
 I selected ``default/linux/arm/13.0/armv5te``.
 
     eselect profile set 18
-  
+
 Configure the locales, first put the locales you want supported in ``locale.gen``.
-  
+
     nano -w /etc/locale.gen
 
 Generate the locales and select the system-wide one.
-  
+
     locale-gen
     eselect locale list
     eselect locale set *locale nr.*
     env-update && source /etc/profile
-  
+
 Add the network interface to the startup.
 
     rc-update add net.eth0 default
@@ -243,7 +243,7 @@ Add the network interface to the startup.
 Update and install some needed stuff.
 
     emerge -uDNv world ntp cronie syslog-ng openssh logrotate dhcpcd
- 
+
 Add it to the startup.
 
     rc-update add syslog-ng default
@@ -258,4 +258,3 @@ The end
 
 You now have a basic Gentoo system running, from here you can install a web
 server, a DLNA server, or whatever you want.
-
