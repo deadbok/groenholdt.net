@@ -33,7 +33,7 @@ You need to find your Python location since this is where `pip` is installed. [P
 **Install PyQT5**
 
 Now that you have your Python installation path, proceed to start a command
-shell (Win+R, cmd, Enter) and change into the `Script` directory in the Python
+shell (Win+R, cmd, Enter) and change into the `Scripts` directory in the Python
 installation directory and use `pip.exe` to install PyQT5.
 
     cd c:\Users\oblivion\AppData\Local\Programs\Python\Python36\Scripts
@@ -42,3 +42,9 @@ installation directory and use `pip.exe` to install PyQT5.
 
 
 !{Installing on my current computer in running Windows 10}($LOCALURL/python-pip-pyqt5-windows.png)
+
+**Setting the PATH**
+
+If you expect on doing this a lot it would be a good idea to add the path of
+pip.exe to the PATH environment variable. I leave this as an exercise to the
+reader, while I hurry back to my trusted terminal window.
