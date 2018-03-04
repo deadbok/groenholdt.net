@@ -6,7 +6,9 @@ template: post
 
 These instructions will enable lcdproc to display computer status on Debian stretch using a [Digispark microcontroller board](http://digistump.com/wiki/digispark), an [I2c to HD44780 interface](https://tronixlabs.com.au/news/tutorial-serial-i2c-backpack-for-hd44780compatible-lcd-modules-with-arduino/), and a 20x4 HD44780 chracter LCD.
 
-!{The Digidpark microcontroller connected to the HD44780 LCD via the I2C to HD44780 interface, a spare interface is shown at the top left}($LOCALURL/connected.png)
+!{test}($LOCALURL/connected.png)
+
+The Digispark microcontroller connected to the HD44780 LCD via the I2C to HD44780 interface, a spare interface is shown at the top left
 
 Lcdproc support the HD44780 interface conneted via I2C but uses a pin mapping that is different from the above board. However, an [updated driver](https://github.com/wilberforce/lcdproc) exists, allowing cutomising the pin mapping of the I2C to HD44780 interface. To use this driver the Debian package has to be rebuild substituting the driver sources.
 
@@ -60,7 +62,7 @@ First load the needed I2C kernel moduled:
 
 Next find the I2C device that the LCD is attached to, use i2cdetect -l to list all I2C devices in the system:
 
-    $ i2cdetect -l
+    $$ i2cdetect -l
     i2c-1   i2c             i2c-tiny-usb at bus 001 device 004      I2C adapter
     i2c-0   smbus           SMBus Via Pro adapter at 5000           SMBus adapter
 
@@ -68,7 +70,7 @@ The adapter we are looking for is the `i2c-tiny-usb` with bus number `001` and a
 
 The address of the LCD is also found using i2cdetect. This time called with the `-y` parameter followed by the bus number found above. 
 
-    $ i2cdetect -y 1
+    $$ i2cdetect -y 1
         0  1  2  3  4  5  6  7  8  9  a  b  c  d  e  f
     00:          -- -- -- -- -- -- -- -- -- -- -- -- -- 
     10: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
