@@ -6,7 +6,7 @@ template: post
 
 These instructions will enable lcdproc to display computer status on Debian stretch using a [Digispark microcontroller board](http://digistump.com/wiki/digispark), an [I2c to HD44780 interface](https://tronixlabs.com.au/news/tutorial-serial-i2c-backpack-for-hd44780compatible-lcd-modules-with-arduino/), and a 20x4 HD44780 chracter LCD.
 
-!{test}($LOCALURL/connected.png)
+!{The Digispark microcontroller connected to the HD44780 LCD via the I2C => HD44780 interface, a spare interface is shown at the top left}($LOCALURL/connected.png)
 
 The Digispark microcontroller connected to the HD44780 LCD via the I2C to HD44780 interface, a spare interface is shown at the top left
 
