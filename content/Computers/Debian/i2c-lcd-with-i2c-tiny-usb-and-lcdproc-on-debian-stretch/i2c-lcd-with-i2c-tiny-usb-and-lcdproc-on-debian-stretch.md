@@ -4,18 +4,31 @@ tags: I2C, digispark, lcdproc, LCD, Debian, I2C-Tiny-USB, HD44780
 title: I2C LCD with I2C tiny USB and lcdproc on Debian stretch
 template: post
 
+
 These instructions will enable lcdproc to display computer status on Debian stretch using a [Digispark microcontroller board](http://digistump.com/wiki/digispark), an [I2c to HD44780 interface](https://tronixlabs.com.au/news/tutorial-serial-i2c-backpack-for-hd44780compatible-lcd-modules-with-arduino/), and a 20x4 HD44780 chracter LCD.
 
 !{The Digispark microcontroller connected to LCD and the I2C to HDD44780 interface shown at the top left}($LOCALURL/connected.png)
 
-Lcdproc support the HD44780 interface conneted via I2C but uses a pin mapping that is different from the above board. However, an [updated driver](https://github.com/wilberforce/lcdproc) exists, allowing cutomising the pin mapping of the I2C to HD44780 interface. To use this driver the Debian package has to be rebuild substituting the driver sources.
+lcdproc support the HD44780 LCD connected via I2C but uses a pin mapping that is different from the above board. However, an [updated driver](https://github.com/wilberforce/lcdproc) exists, allowing customising the pin mapping of the I2C to HD44780 interface. To use this driver the Debian package has to be rebuild substituting the driver sources.
 
-# Preperations
+# Preparations
 
 ## Digispark
 
 Information on installing the I2C-tiny-USB firmware can be found here: [https://github.com/harbaum/I2C-Tiny-USB/tree/master/digispark](https://github.com/harbaum/I2C-Tiny-USB/tree/master/digispark)
 
+### Connecting the Digispark to the I2C to HD44780 module
+
+Below is a table of the connections needed:
+
+| Digispark pin |     ATtiny85 pin    | I2C to HD44780 pin |
+|--------------:|--------------------:|-------------------:|
+|          GND  |              *N/A*  |               GND  |
+|           5V  |              *N/A*  |               VCC  |
+|           P0  | AREF, SDA, DI, PWM  |               SDA  |
+|           P2  |           D/A, SCK  |               SDL  |
+
+The *Digispark pin*, and the *ATtiny85 pin* are both printed on the silkscreen of my Digispark clone. One set on the top-, and one on the bottom side.
 ## Debian Machine
 
 Install the required dependencies to build the debian package:
@@ -58,7 +71,7 @@ First load the needed I2C kernel moduled:
     modprobe i2c-dev
     modprobe i2c-tiny-dev
 
-Next find the I2C device that the LCD is attached to, use i2cdetect -l to list all I2C devices in the system:
+Next, find the I2C device that the LCD is attached to, use i2cdetect -l to list all I2C devices in the system:
 
     $$ i2cdetect -l
     i2c-1   i2c             i2c-tiny-usb at bus 001 device 004      I2C adapter
@@ -79,7 +92,7 @@ The address of the LCD is also found using i2cdetect. This time called with the 
     60: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
     70: -- -- -- -- -- -- -- --
 
-From the above output the address is the default of `0x27`.
+From the above output, the address is the default of `0x27`.
 
 # Configure
 
@@ -143,7 +156,7 @@ My `/etc/lcdproc.conf` contains the following:
     # set reporting level
     ReportLevel=2
 
-    # report to to syslog ?
+    # report to syslog?
     ReportToSyslog=false
 
     # run in foreground [default: false; legal: true, false]
@@ -281,14 +294,14 @@ My `/etc/lcdproc.conf` contains the following:
 
 # Testing
 
-By issuing the following command the server and the lcdproc client is started in the foreground running untill you press CTRL+C. The LCD should start displaying the screens configured in `/etc/lcdproc.conf`.
+By issuing the following command the server and the lcdproc client is started in the foreground running until you press CTRL+C. The LCD should start displaying the screens configured in `/etc/lcdproc.conf`.
 
     service LCDd start
     lcdproc -f
 
 # Making it survive reboots
 
-Enabe LCDd at boot:
+Enable LCDd at boot:
 
     systemctl enable LCDd
 
