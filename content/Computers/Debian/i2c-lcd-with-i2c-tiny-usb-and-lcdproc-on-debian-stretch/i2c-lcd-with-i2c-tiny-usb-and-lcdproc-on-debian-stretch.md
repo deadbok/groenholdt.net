@@ -3,6 +3,7 @@ date: 2018-03-03 21:04
 tags: I2C, digispark, lcdproc, LCD, Debian, I2C-Tiny-USB, HD44780
 title: I2C LCD with I2C tiny USB and lcdproc on Debian stretch
 template: post
+twitter_image: $LOCALURL/connected.png
 
 
 These instructions will enable lcdproc to display computer status on Debian stretch using a [Digispark microcontroller board](http://digistump.com/wiki/digispark), an [I2c to HD44780 interface](https://tronixlabs.com.au/news/tutorial-serial-i2c-backpack-for-hd44780compatible-lcd-modules-with-arduino/), and a 20x4 HD44780 chracter LCD.

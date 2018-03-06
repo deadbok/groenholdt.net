@@ -10,6 +10,9 @@
           <meta name="twitter:card" content="summary" />
           <meta name="twitter:site" content="@deadbok" />
           <meta name="twitter:title" content="{{ content.metadata.title }}" />
+          {% if content.metadata.twitter_image %}
+            <meta name="twitter:image" content="{{ content.metadata.twitter_image }}" />
+          {% endif %}
         {% endif %}
       {% endif %}
 
