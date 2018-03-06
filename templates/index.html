@@ -1,6 +1,5 @@
 {% extends "base.html" %}
-{% block title %}{{ context.settings['SITENAME'] }} - 
-{{ content.metadata['title'] }}{% endblock %}
+{% block title %}{{ context.settings['SITENAME'] }} - {{ content.metadata['title'] }}{% endblock %}
 {% block contents %}
 {% include "pagination.html" %}
 {# Run through all posts sorted by date ...|sort(attribute='metadata.date', reverse=True)#}
